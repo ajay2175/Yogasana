@@ -1,38 +1,59 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useState } from "react";
 import type { AsanaVisualPack, VisualTab } from "@/lib/types/visuals";
-import { PoseSimulationPlayer } from "./PoseSimulationPlayer";
-import { PhotoGallery, ReferencePhotoPanel } from "./ReferencePhotoPanel";
-import { VideoEmbedPanel } from "./VideoEmbedPanel";
-import { PoseDiagram } from "./PoseDiagram";
+
+const ImmersivePoseSimulator = dynamic(
+  () =>
+    import("./three/ImmersivePoseSimulator").then((mod) => mod.ImmersivePoseSimulator),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="flex h-[min(70vh,520px)] items-center justify-center rounded-2xl bg-slate-900 text-sm text-teal-200">
+        Loading 3D pose simulator…
+      </div>
+    ),
+  },
+);
 
 const TABS: { id: VisualTab; label: string; hint: string }[] = [
-  { id: "simulation", label: "Step simulation", hint: "Animated entry → hold → refinement" },
-  { id: "photo", label: "Reference photos", hint: "Real-body shape and alignment" },
-  { id: "video", label: "Instruction video", hint: "Short expert demonstration" },
-  { id: "anatomy", label: "Anatomy map", hint: "Loaded regions for clinicians" },
+  {
+    id: "simulation3d",
+    label: "3D simulation video",
+    hint: "Auto-playing avatar mimics entry → hold → refine",
+  },
+  {
+    id: "immersive",
+    label: "VR / AR view",
+    hint: "Orbit in 3D or enter AR/VR on supported devices",
+  },
+  {
+    id: "anatomy",
+    label: "3D anatomy overlay",
+    hint: "Loaded regions highlighted on the avatar",
+  },
 ];
 
-export function AsanaVisualStudio({ pack }: { pack: AsanaVisualPack }) {
-  const [tab, setTab] = useState<VisualTab>("simulation");
-
-  const photos = pack.gallery?.length
-    ? pack.gallery
-    : pack.referencePhoto
-      ? [pack.referencePhoto]
-      : [];
+export function AsanaVisualStudio({
+  pack,
+  poseName,
+}: {
+  pack: AsanaVisualPack;
+  poseName: string;
+}) {
+  const [tab, setTab] = useState<VisualTab>("simulation3d");
 
   return (
     <section className="rounded-3xl border border-teal-200 bg-gradient-to-br from-white to-teal-50/40 p-6 dark:border-teal-900 dark:from-zinc-950 dark:to-teal-950/20">
       <div className="mb-4">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-teal-700 dark:text-teal-300">
-          Visual studio
+          Immersive visual studio
         </p>
-        <h2 className="mt-1 text-2xl font-semibold">See the pose before you practice</h2>
+        <h2 className="mt-1 text-2xl font-semibold">3D pose mimic — no external video links</h2>
         <p className="mt-2 max-w-2xl text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-          Use simulation steps for learning, reference photos for shape, videos for
-          lineage technique, and anatomy overlays for clinical visualization.
+          A procedural 3D avatar performs each asana step-by-step like a simulation video. Rotate
+          with drag, zoom with scroll, or use Enter AR / Enter VR on supported phones and headsets.
         </p>
       </div>
 
@@ -54,92 +75,34 @@ export function AsanaVisualStudio({ pack }: { pack: AsanaVisualPack }) {
         ))}
       </div>
 
-      {tab === "simulation" ? (
-        <PoseSimulationPlayer
-          poseKey={pack.poseKey}
-          steps={pack.steps}
-          caption={pack.simulationCaption}
-        />
-      ) : null}
-
-      {tab === "photo" ? (
-        photos.length > 0 ? (
-          <PhotoGallery photos={photos} />
-        ) : (
-          <p className="text-sm text-zinc-500">Reference photos coming soon for this pose.</p>
-        )
-      ) : null}
-
-      {tab === "video" ? (
-        pack.videos.length > 0 ? (
-          <div className="space-y-8">
-            {pack.videos.map((video) => (
-              <VideoEmbedPanel key={video.id} video={video} />
-            ))}
-          </div>
-        ) : (
-          <p className="text-sm text-zinc-500">Video demonstrations coming soon.</p>
-        )
-      ) : null}
+      <ImmersivePoseSimulator
+        poseKey={pack.poseKey}
+        poseName={poseName}
+        steps={pack.steps}
+        anatomyRegions={pack.anatomyRegions}
+        caption={pack.simulationCaption}
+        mode={tab === "immersive" ? "immersive" : tab === "anatomy" ? "anatomy" : "simulation"}
+      />
 
       {tab === "anatomy" ? (
-        <div className="grid gap-6 lg:grid-cols-2">
-          <div className="aspect-[5/8] overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800">
-            <PoseDiagram
-              poseKey={pack.poseKey}
-              step={2}
-              highlightRegions={pack.anatomyRegions}
-            />
-          </div>
-          <div className="space-y-3">
-            <p className="text-sm leading-7 text-zinc-700 dark:text-zinc-300">
-              {pack.biomechanicsCaption}
-            </p>
-            <ul className="space-y-3">
-              {pack.anatomyRegions.map((region) => (
-                <li
-                  key={region.id}
-                  className="rounded-xl border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950"
-                >
-                  <p className="font-medium text-rose-700 dark:text-rose-300">
-                    {region.label}
-                  </p>
-                  <p className="mt-1 text-sm text-zinc-700 dark:text-zinc-300">
-                    {region.clinicalNote}
-                  </p>
-                  {region.ayurvedaNote ? (
-                    <p className="mt-2 text-xs text-indigo-700 dark:text-indigo-300">
-                      Ayurveda: {region.ayurvedaNote}
-                    </p>
-                  ) : null}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+        <ul className="mt-6 space-y-3">
+          {pack.anatomyRegions.map((region) => (
+            <li
+              key={region.id}
+              className="rounded-xl border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950"
+            >
+              <p className="font-medium text-rose-700 dark:text-rose-300">{region.label}</p>
+              <p className="mt-1 text-sm text-zinc-700 dark:text-zinc-300">{region.clinicalNote}</p>
+              {region.ayurvedaNote ? (
+                <p className="mt-2 text-xs text-indigo-700 dark:text-indigo-300">
+                  Ayurveda: {region.ayurvedaNote}
+                </p>
+              ) : null}
+            </li>
+          ))}
+          <p className="text-sm text-zinc-600 dark:text-zinc-400">{pack.biomechanicsCaption}</p>
+        </ul>
       ) : null}
     </section>
-  );
-}
-
-/** Compact thumbnail for cards — always shows hold-phase diagram */
-export function AsanaVisualThumbnail({
-  poseKey,
-  name,
-}: {
-  poseKey: string;
-  name: string;
-}) {
-  return (
-    <div
-      className="relative mb-4 aspect-[5/3] overflow-hidden rounded-xl border border-teal-100 bg-teal-50/50 dark:border-teal-900 dark:bg-teal-950/30"
-      aria-hidden
-    >
-      <PoseDiagram poseKey={poseKey} step={2} className="scale-110" />
-      <span className="absolute left-3 top-3 rounded-full bg-black/50 px-2 py-0.5 text-[10px] uppercase tracking-wide text-white">
-        Preview
-      </span>
-      <span className="sr-only">{name} pose preview</span>
-    </div>
   );
 }

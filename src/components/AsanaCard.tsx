@@ -6,7 +6,7 @@ import { formatAsanaSummary, visibleEvidenceCodes } from "@/lib/lens/formatters"
 import { getVisualsForSlug } from "@/lib/visuals/catalog";
 import { useLens } from "@/components/LensProvider";
 import { EvidenceBadgeRow } from "@/components/EvidenceBadge";
-import { AsanaVisualThumbnail } from "@/components/visuals/AsanaVisualStudio";
+import { AsanaVisualThumbnail } from "@/components/visuals/AsanaVisualThumbnail";
 
 export function AsanaCard({ asana }: { asana: AsanaRecord }) {
   const { lens } = useLens();
@@ -21,7 +21,10 @@ export function AsanaCard({ asana }: { asana: AsanaRecord }) {
     >
       {visuals ? (
         <div className="px-5 pt-5">
-          <AsanaVisualThumbnail poseKey={visuals.poseKey} name={asana.identity.nameEnglish} />
+          <AsanaVisualThumbnail
+            poseKey={visuals.poseKey}
+            name={asana.identity.nameEnglish}
+          />
         </div>
       ) : null}
       <div className="p-5 pt-0">

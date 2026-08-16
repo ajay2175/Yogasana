@@ -46,7 +46,7 @@ export default async function AsanaDetailPage({
         </div>
       </div>
 
-      {visuals ? <AsanaVisualStudio pack={visuals} /> : null}
+      {visuals ? <AsanaVisualStudio pack={visuals} poseName={asana.identity.nameEnglish} /> : null}
 
       <LensControls />
       <AsanaDetailPanels asana={asana} />

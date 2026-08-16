@@ -30,16 +30,15 @@ Open **http://localhost:3000** after `npm run start`.
 
 ## Visual studio (each asana)
 
-Every pose page includes four tabs:
+Each pose detail page includes a **3D immersive simulator** (no broken external videos):
 
-| Tab | Purpose |
-|-----|---------|
-| **Step simulation** | Auto-playing animated diagram: setup → entry → hold → refine |
-| **Reference photos** | Real-body alignment images (Wikimedia Commons) |
-| **Instruction video** | Embedded short YouTube demonstrations (Iyengar / instructional) |
-| **Anatomy map** | Highlighted load regions with clinical + Ayurveda notes |
+| Mode | Purpose |
+|------|---------|
+| **3D simulation video** | Auto-playing 3D avatar: setup → entry → hold → refine |
+| **VR / AR view** | Orbit in 3D; **Enter AR** / **Enter VR** on supported phones & headsets |
+| **3D anatomy overlay** | Loaded regions highlighted on the avatar |
 
-Explore cards show pose preview thumbnails. Open any asana (e.g. `/asana/trikonasana`) and use the tabs at the top.
+Drag to rotate · scroll to zoom · pause/step through phases. AR requires HTTPS + compatible device.
 
 ## Project structure
 
