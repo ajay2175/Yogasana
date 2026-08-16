@@ -4,56 +4,78 @@ import { useEffect, useMemo, useState } from "react";
 import {
   blendLandmarkFrames,
   detectPoseFromImageUrl,
+  isLikelyBrokenRemoteUrl,
+  localReferencePath,
   type PoseLandmarkFrame,
 } from "./mediapipe-pose-engine";
+import { buildAnatomyGuidedStepFrames } from "./joint-pose-to-landmarks";
 import { NEUTRAL_POSE_FRAME, STEP_BLEND_TARGETS } from "./neutral-pose-landmarks";
 
-export type VisionPoseStatus = "idle" | "loading" | "ready" | "error";
+export type VisionPoseStatus = "idle" | "loading" | "ready" | "enhancing" | "error";
+export type VisionPoseSource = "anatomy" | "google-mediapipe" | "nvidia-gem";
 
-export function useVisionPose(referenceImageUrl: string | undefined) {
-  const [holdFrame, setHoldFrame] = useState<PoseLandmarkFrame | null>(null);
-  const [status, setStatus] = useState<VisionPoseStatus>("idle");
+export function useVisionPose(poseKey: string, referenceImageUrl?: string) {
+  const anatomyFrames = useMemo(() => buildAnatomyGuidedStepFrames(poseKey), [poseKey]);
+
+  const [stepFrames, setStepFrames] = useState<PoseLandmarkFrame[]>(() =>
+    anatomyFrames.map((frame, i) =>
+      blendLandmarkFrames(NEUTRAL_POSE_FRAME, frame, STEP_BLEND_TARGETS[i] ?? 1),
+    ),
+  );
+  const [status, setStatus] = useState<VisionPoseStatus>("ready");
+  const [source, setSource] = useState<VisionPoseSource>("anatomy");
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!referenceImageUrl) {
-      setStatus("error");
-      setError("No reference image for vision pose extraction.");
-      return;
-    }
-
-    let cancelled = false;
-    setStatus("loading");
+    const baseFrames = anatomyFrames.map((frame, i) =>
+      blendLandmarkFrames(NEUTRAL_POSE_FRAME, frame, STEP_BLEND_TARGETS[i] ?? 1),
+    );
+    setStepFrames(baseFrames);
+    setSource("anatomy");
+    setStatus("ready");
     setError(null);
 
-    detectPoseFromImageUrl(referenceImageUrl)
-      .then((frame) => {
-        if (cancelled) return;
-        if (!frame) {
-          setStatus("error");
-          setError("MediaPipe could not detect a body in the reference image.");
+    const candidates = [
+      localReferencePath(poseKey),
+      referenceImageUrl && !isLikelyBrokenRemoteUrl(referenceImageUrl) ? referenceImageUrl : null,
+    ].filter(Boolean) as string[];
+
+    if (!candidates.length) return;
+
+    let cancelled = false;
+    setStatus("enhancing");
+
+    (async () => {
+      for (const url of candidates) {
+        try {
+          const hold = await detectPoseFromImageUrl(url);
+          if (cancelled || !hold) continue;
+
+          const enhanced = STEP_BLEND_TARGETS.map((weight) =>
+            blendLandmarkFrames(NEUTRAL_POSE_FRAME, hold, weight),
+          );
+          setStepFrames(enhanced);
+          setSource("google-mediapipe");
+          setStatus("ready");
+          setError(null);
           return;
+        } catch {
+          // try next candidate
         }
-        setHoldFrame(frame);
+      }
+
+      if (!cancelled) {
         setStatus("ready");
-      })
-      .catch((err: unknown) => {
-        if (cancelled) return;
-        setStatus("error");
-        setError(err instanceof Error ? err.message : "Vision pose extraction failed.");
-      });
+        setSource("anatomy");
+      }
+    })();
 
     return () => {
       cancelled = true;
     };
-  }, [referenceImageUrl]);
+  }, [anatomyFrames, poseKey, referenceImageUrl]);
 
-  const stepFrames = useMemo(() => {
-    if (!holdFrame) return null;
-    return STEP_BLEND_TARGETS.map((weight) => blendLandmarkFrames(NEUTRAL_POSE_FRAME, holdFrame, weight));
-  }, [holdFrame]);
-
-  return { holdFrame, stepFrames, status, error };
+  return { stepFrames, status, source, error };
 }
 
 export function getAnimatedVisionFrame(

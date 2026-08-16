@@ -1,37 +1,45 @@
 # Vision-driven 3D pose pipeline
 
-## Current (browser)
+## Load order (nothing should fail)
 
-| Layer | Technology | Role |
-|-------|------------|------|
-| Pose extraction | **Google MediaPipe Pose Landmarker (Heavy)** | BlazePose GHUM — 33 3D world landmarks from reference photo |
-| Retargeting | **Kalidokit** | Landmark → humanoid bone rotations |
-| Avatar | **VRM** (`public/models/yoga-instructor.vrm`) | Rigged human mesh, WebXR AR/VR |
+| Priority | Source | When |
+|----------|--------|------|
+| 1 | **Anatomy-guided keyframes** | Always — instant VRM simulation, no network |
+| 2 | **Google MediaPipe** (self-hosted) | When `/public/reference-poses/{poseKey}.jpg` exists |
+| 3 | **NVIDIA GEM-X** (offline GPU) | When `public/motions/{poseKey}.json` is precomputed |
 
-Reference photos in `src/data/asana-visuals.json` are analyzed once per pose (cached). Steps interpolate from a neutral standing template → vision-detected hold pose.
+Previous "failed to load" errors came from **broken Wikimedia URLs (404)** and **cross-origin image fetches**. Reference paths now point to local files only.
 
-## Why not NVIDIA VLA in the browser?
+## Google MediaPipe (browser)
 
-NVIDIA **VLA** models (GR00T, Alpamayo) target **robotics / autonomous driving** — camera + language → robot or vehicle actions. They do not ship a browser API for yoga instruction.
+Self-hosted in `/public/mediapipe/`:
 
-For **cinematic human motion generation**, NVIDIA **Kimodo** (kinematic motion diffusion) is the relevant tool: text + pose constraints → 3D skeletal animation (SMPL-X / G1). That runs on GPU via Python, not in Next.js client code.
+- WASM: `/mediapipe/wasm/`
+- Model: `/mediapipe/pose_landmarker_lite.task` (~5.5 MB)
 
-## Optional Phase 2: Kimodo offline generation
+Add photos to `/public/reference-poses/trikonasana.jpg` etc. to enable photo-accurate enhancement.
+
+## NVIDIA vision models (not VLA)
+
+| Model | Purpose | Where it runs |
+|-------|---------|----------------|
+| **GEM-X** | 77-joint SOMA 3D motion from **video** | GPU Python — [github.com/NVlabs/GEM-X](https://github.com/NVlabs/GEM-X) |
+| **BodyPose3DNet** (TAO) | 34 3D keypoints from **image** | TensorRT / TAO deploy |
+| **Kimodo** | Text + constraints → skeletal animation | GPU Python |
+| **GR00T / Alpamayo VLA** | Robotics / AV — **not for yoga browsers** | — |
+
+Check NVIDIA status: `GET /api/vision/nvidia?poseKey=trikonasana`
+
+### GEM offline (Phase 2)
 
 ```bash
-# Requires CUDA GPU + kimodo package (see https://github.com/nv-tlabs/kimodo)
-pip install kimodo
-kimodo_gen \
-  --prompt "yoga trikonasana triangle pose, side bend, arms extended" \
-  --duration 8 \
-  --model nvidia/Kimodo-G1-RP-v1 \
-  --output public/motions/trikonasana.bvh
+# Requires CUDA + GEM repo clone
+git clone https://github.com/NVlabs/GEM-X
+# Process instructor video per asana → export SOMA JSON → public/motions/trikonasana.json
 ```
-
-Export BVH/GLB per asana, load in Three.js `AnimationMixer` for film-quality motion. Kimodo complements (does not replace) MediaPipe for **photo-accurate** alignment to your reference images.
 
 ## Deploy notes
 
-- MediaPipe WASM + Heavy model load from CDN on first pose view (~15 MB).
-- AR requires **HTTPS** (deploy to Vercel) + WebXR-capable device.
-- Replace `public/models/yoga-instructor.vrm` with a custom instructor avatar (Mixamo → VRM) for branding.
+- AR requires HTTPS (Vercel).
+- Replace `public/models/yoga-instructor.vrm` with your instructor avatar.
+- MediaPipe + WASM are bundled in `public/` — no external CDN required.

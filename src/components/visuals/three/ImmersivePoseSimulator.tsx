@@ -14,6 +14,7 @@ import type { SimulationStep, AnatomyRegion } from "@/lib/types/visuals";
 import type { PoseLandmarkFrame } from "@/lib/visuals/mediapipe-pose-engine";
 import { getAnimatedVisionFrame } from "@/lib/visuals/use-vision-pose";
 import { VRMYogaAvatar } from "./VRMYogaAvatar";
+import { CanvasErrorBoundary } from "./CanvasErrorBoundary";
 
 const xrStore = createXRStore();
 
@@ -89,7 +90,8 @@ export interface ImmersivePoseSimulatorProps {
   anatomyRegions: AnatomyRegion[];
   caption: string;
   referenceImageUrl?: string;
-  visionStatus?: "idle" | "loading" | "ready" | "error";
+  visionStatus?: "idle" | "loading" | "ready" | "enhancing" | "error";
+  visionSource?: "anatomy" | "google-mediapipe" | "nvidia-gem";
   visionError?: string | null;
   stepFrames?: PoseLandmarkFrame[] | null;
   mode?: "simulation" | "anatomy" | "immersive";
@@ -101,6 +103,7 @@ export function ImmersivePoseSimulator({
   steps,
   caption,
   visionStatus = "ready",
+  visionSource = "anatomy",
   visionError,
   stepFrames,
   mode = "simulation",
@@ -116,39 +119,66 @@ export function ImmersivePoseSimulator({
   };
 
   const canvasHeight = compact ? "h-44" : "h-[min(70vh,520px)]";
-  const ready = visionStatus === "ready" && !!stepFrames?.length;
+  const ready = (visionStatus === "ready" || visionStatus === "enhancing") && !!stepFrames?.length;
 
   const statusLabel = useMemo(() => {
     switch (visionStatus) {
       case "loading":
-        return "Google MediaPipe Heavy — analyzing reference pose…";
+        return "Loading vision models…";
+      case "enhancing":
+        return "Enhancing with Google MediaPipe (optional)…";
       case "error":
-        return visionError ?? "Vision pose extraction failed.";
+        return visionError ?? "Vision pipeline error — using anatomy-guided fallback.";
       case "ready":
-        return "Google Vision 3D · Kalidokit retarget · VRM avatar";
+        if (visionSource === "google-mediapipe") {
+          return "Google MediaPipe 3D · Kalidokit · VRM avatar";
+        }
+        if (visionSource === "nvidia-gem") {
+          return "NVIDIA GEM 77-joint motion · VRM avatar";
+        }
+        return "Anatomy-guided 3D simulation · VRM avatar (add photos to /public/reference-poses/)";
       default:
-        return "Initializing vision pipeline…";
+        return "Initializing 3D pipeline…";
     }
-  }, [visionError, visionStatus]);
+  }, [visionError, visionSource, visionStatus]);
+
+  const badgeLabel = useMemo(() => {
+    switch (visionSource) {
+      case "google-mediapipe":
+        return "Google MediaPipe";
+      case "nvidia-gem":
+        return "NVIDIA GEM";
+      default:
+        return "Anatomy 3D";
+    }
+  }, [visionSource]);
 
   return (
     <div className="space-y-4">
       <div className={`relative overflow-hidden rounded-2xl border border-teal-300 bg-gradient-to-b from-slate-950 via-slate-900 to-teal-950 ${canvasHeight}`}>
         {ready ? (
-          <Canvas shadows dpr={[1, 2]}>
-            <XR store={xrStore}>
-              <Suspense fallback={null}>
-                <VisionAvatarScene
-                  stepIndex={Math.min(current.poseStep, 3)}
-                  playing={playing}
-                  stepDurationMs={current.durationMs}
-                  autoOrbit={autoOrbit}
-                  stepFrames={stepFrames!}
-                  onStepComplete={handleStepComplete}
-                />
-              </Suspense>
-            </XR>
-          </Canvas>
+          <CanvasErrorBoundary
+            fallback={
+              <div className="flex h-full items-center justify-center px-6 text-center text-sm text-rose-200">
+                3D avatar failed to load. Check that /public/models/yoga-instructor.vrm exists.
+              </div>
+            }
+          >
+            <Canvas shadows dpr={[1, 2]}>
+              <XR store={xrStore}>
+                <Suspense fallback={null}>
+                  <VisionAvatarScene
+                    stepIndex={Math.min(current.poseStep, 3)}
+                    playing={playing}
+                    stepDurationMs={current.durationMs}
+                    autoOrbit={autoOrbit}
+                    stepFrames={stepFrames!}
+                    onStepComplete={handleStepComplete}
+                  />
+                </Suspense>
+              </XR>
+            </Canvas>
+          </CanvasErrorBoundary>
         ) : (
           <div className="flex h-full min-h-[220px] flex-col items-center justify-center gap-3 px-6 text-center">
             {visionStatus === "loading" ? (
@@ -156,8 +186,8 @@ export function ImmersivePoseSimulator({
             ) : null}
             <p className="text-sm font-medium text-teal-100">{statusLabel}</p>
             <p className="max-w-md text-xs text-teal-200/80">
-              BlazePose GHUM extracts 33 3D landmarks from the reference photo, retargeted to a rigged VRM
-              humanoid. No YouTube embeds.
+              Simulation loads immediately from anatomy keyframes. Optional Google MediaPipe or NVIDIA GEM
+              enhancement when reference images / GPU pipeline are available.
             </p>
           </div>
         )}
@@ -169,7 +199,7 @@ export function ImmersivePoseSimulator({
         </div>
         <div className="pointer-events-none absolute left-3 top-3 flex flex-col gap-2">
           <span className="rounded-full bg-emerald-600/95 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-white">
-            Google Vision ML
+            {badgeLabel}
           </span>
           {ready ? (
             <span className="rounded-full bg-teal-500/90 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-white">

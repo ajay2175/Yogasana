@@ -14,22 +14,30 @@ export type PoseLandmarkFrame = {
 
 let landmarkerPromise: Promise<PoseLandmarker> | null = null;
 
-const WASM_CDN = "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision/wasm";
-const HEAVY_MODEL =
-  "https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_heavy/float16/latest/pose_landmarker_heavy.task";
+/** Self-hosted assets — avoids CDN / CORS failures in production and offline dev. */
+const WASM_ROOT = "/mediapipe/wasm";
+const LITE_MODEL = "/mediapipe/pose_landmarker_lite.task";
+
+async function createLandmarker(delegate: "GPU" | "CPU"): Promise<PoseLandmarker> {
+  const vision = await FilesetResolver.forVisionTasks(WASM_ROOT);
+  return PoseLandmarker.createFromOptions(vision, {
+    baseOptions: {
+      modelAssetPath: LITE_MODEL,
+      delegate,
+    },
+    runningMode: "IMAGE",
+    numPoses: 1,
+  });
+}
 
 export async function getPoseLandmarker(): Promise<PoseLandmarker> {
   if (!landmarkerPromise) {
     landmarkerPromise = (async () => {
-      const vision = await FilesetResolver.forVisionTasks(WASM_CDN);
-      return PoseLandmarker.createFromOptions(vision, {
-        baseOptions: {
-          modelAssetPath: HEAVY_MODEL,
-          delegate: "GPU",
-        },
-        runningMode: "IMAGE",
-        numPoses: 1,
-      });
+      try {
+        return await createLandmarker("GPU");
+      } catch {
+        return createLandmarker("CPU");
+      }
     })();
   }
   return landmarkerPromise;
@@ -38,9 +46,14 @@ export async function getPoseLandmarker(): Promise<PoseLandmarker> {
 function loadImage(url: string): Promise<HTMLImageElement> {
   return new Promise((resolve, reject) => {
     const img = new Image();
-    img.crossOrigin = "anonymous";
+    const sameOrigin =
+      url.startsWith("/") ||
+      (typeof window !== "undefined" && url.startsWith(window.location.origin));
+    if (!sameOrigin) {
+      img.crossOrigin = "anonymous";
+    }
     img.onload = () => resolve(img);
-    img.onerror = () => reject(new Error(`Failed to load pose reference image: ${url}`));
+    img.onerror = () => reject(new Error(`Could not load image at ${url}`));
     img.src = url;
   });
 }
@@ -54,7 +67,6 @@ function toFrame(result: PoseLandmarkerResult, width: number, height: number): P
 
 const frameCache = new Map<string, PoseLandmarkFrame>();
 
-/** Google MediaPipe Pose Landmarker (Heavy / BlazePose GHUM 3D). */
 export async function detectPoseFromImageUrl(url: string): Promise<PoseLandmarkFrame | null> {
   const cached = frameCache.get(url);
   if (cached) return cached;
@@ -92,4 +104,12 @@ export function blendLandmarkFrames(
     imageWidth: b.imageWidth,
     imageHeight: b.imageHeight,
   };
+}
+
+export function localReferencePath(poseKey: string): string {
+  return `/reference-poses/${poseKey}.jpg`;
+}
+
+export function isLikelyBrokenRemoteUrl(url: string): boolean {
+  return url.includes("upload.wikimedia.org");
 }

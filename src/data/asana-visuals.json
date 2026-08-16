@@ -12,7 +12,7 @@
         { "id": "s4", "label": "Meditative stillness", "instruction": "Maintain sthira-sukham: steady without strain. This is the classical nadi-shuddhi seat (T1 framework).", "poseStep": 3, "durationMs": 5000 }
       ],
       "referencePhoto": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Meditation_yoga_asana_siddhasana.jpg/640px-Meditation_yoga_asana_siddhasana.jpg",
+        "url": "/reference-poses/siddhasana.jpg",
         "alt": "Practitioner in Siddhasana meditation seat",
         "credit": "Wikimedia Commons — meditation asana reference",
         "license": "CC BY-SA"
@@ -44,7 +44,7 @@
         { "id": "v4", "label": "Digestive seat hold", "instruction": "Hold comfortably after meals if knees tolerate it — comfort seat, not a substitute for walking.", "poseStep": 3, "durationMs": 4500 }
       ],
       "referencePhoto": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Vajrasana_Yoga-Asana.jpg/640px-Vajrasana_Yoga-Asana.jpg",
+        "url": "/reference-poses/vajrasana.jpg",
         "alt": "Practitioner in Vajrasana kneeling pose",
         "credit": "Wikimedia Commons",
         "license": "CC BY-SA"
@@ -76,7 +76,7 @@
         { "id": "m4", "label": "Hold & breathe", "instruction": "Hold 5–8 breaths. Avoid forcing — pregnancy and acute disc pain are apavarga (exceptions).", "poseStep": 3, "durationMs": 4500 }
       ],
       "referencePhoto": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Matsyendrasana_Yoga-Asana.jpg/640px-Matsyendrasana_Yoga-Asana.jpg",
+        "url": "/reference-poses/matsyendrasana.jpg",
         "alt": "Practitioner in Matsyendrasana spinal twist",
         "credit": "Wikimedia Commons",
         "license": "CC BY-SA"
@@ -108,7 +108,7 @@
         { "id": "p4", "label": "Calm hold", "instruction": "Relax shoulders; avoid pulling head to knees. Pitta-cooling when gentle (A1).", "poseStep": 3, "durationMs": 4500 }
       ],
       "referencePhoto": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Paschimottanasana_Yoga-Asana.jpg/640px-Paschimottanasana_Yoga-Asana.jpg",
+        "url": "/reference-poses/paschimottanasana.jpg",
         "alt": "Seated forward fold Paschimottanasana",
         "credit": "Wikimedia Commons",
         "license": "CC BY-SA"
@@ -140,7 +140,7 @@
         { "id": "u4", "label": "Active hold", "instruction": "Hold 30 seconds for metabolic load. Useful post-meal movement alternative (B1-B2 plausibility).", "poseStep": 3, "durationMs": 4000 }
       ],
       "referencePhoto": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Utkatasana_Chair_Pose.jpg/640px-Utkatasana_Chair_Pose.jpg",
+        "url": "/reference-poses/utkatasana.jpg",
         "alt": "Utkatasana chair pose",
         "credit": "Wikimedia Commons",
         "license": "CC BY-SA"
@@ -173,7 +173,7 @@
         { "id": "vr4", "label": "Balance hold", "instruction": "Hold while breathing steadily. Use wall if fall risk is meaningful.", "poseStep": 3, "durationMs": 4500 }
       ],
       "referencePhoto": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Vrikshasana_Tree_Pose.jpg/640px-Vrikshasana_Tree_Pose.jpg",
+        "url": "/reference-poses/vrikshasana.jpg",
         "alt": "Vrikshasana tree balance pose",
         "credit": "Wikimedia Commons",
         "license": "CC BY-SA"
@@ -205,20 +205,20 @@
         { "id": "t4", "label": "Triangle hold", "instruction": "Hold 30–60 seconds. Ground back foot; lengthen both sides of waist evenly.", "poseStep": 3, "durationMs": 4500 }
       ],
       "referencePhoto": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Trikonasana_Yoga-Asana_Nina-Meladze.jpg/640px-Trikonasana_Yoga-Asana_Nina-Meladze.jpg",
+        "url": "/reference-poses/trikonasana.jpg",
         "alt": "Utthita Trikonasana triangle pose",
         "credit": "Wikimedia Commons — Nina Meladze",
         "license": "CC BY-SA"
       },
       "gallery": [
         {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Trikonasana_Yoga-Asana_Nina-Meladze.jpg/640px-Trikonasana_Yoga-Asana_Nina-Meladze.jpg",
+          "url": "/reference-poses/trikonasana.jpg",
           "alt": "Full triangle alignment",
           "credit": "Wikimedia Commons",
           "license": "CC BY-SA"
         },
         {
-          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Trikonasana.jpg/640px-Trikonasana.jpg",
+          "url": "/reference-poses/trikonasana-alt.jpg",
           "alt": "Triangle pose side view",
           "credit": "Wikimedia Commons",
           "license": "CC BY-SA"
@@ -252,7 +252,7 @@
         { "id": "d4", "label": "Hold dog", "instruction": "Hold 5 breaths or longer. Modify for glaucoma/retinopathy (head-down caution).", "poseStep": 3, "durationMs": 4000 }
       ],
       "referencePhoto": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Downward_Dog_pose.jpg/640px-Downward_Dog_pose.jpg",
+        "url": "/reference-poses/adho-mukha-svanasana.jpg",
         "alt": "Adho Mukha Svanasana downward facing dog",
         "credit": "Wikimedia Commons",
         "license": "CC BY-SA"
@@ -284,7 +284,7 @@
         { "id": "sh4", "label": "Integrate", "instruction": "Remain 5–15 minutes. Primary pathway is stress recovery, not glucose disposal.", "poseStep": 3, "durationMs": 5000 }
       ],
       "referencePhoto": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Shavasana_Corpse_Pose.jpg/640px-Shavasana_Corpse_Pose.jpg",
+        "url": "/reference-poses/shavasana.jpg",
         "alt": "Shavasana relaxation supine pose",
         "credit": "Wikimedia Commons",
         "license": "CC BY-SA"
@@ -316,7 +316,7 @@
         { "id": "si4", "label": "Vertical hold", "instruction": "Hold only with stable alignment. Contraindicated: glaucoma, uncontrolled BP, cervical disease.", "poseStep": 3, "durationMs": 5000 }
       ],
       "referencePhoto": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Shirshasana_headstand.jpg/640px-Shirshasana_headstand.jpg",
+        "url": "/reference-poses/sirsasana.jpg",
         "alt": "Sirsasana headstand inversion",
         "credit": "Wikimedia Commons",
         "license": "CC BY-SA"

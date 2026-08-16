@@ -44,7 +44,7 @@ export function AsanaVisualStudio({
   poseName: string;
 }) {
   const [tab, setTab] = useState<VisualTab>("simulation3d");
-  const { stepFrames, status, error } = useVisionPose(pack.referencePhoto?.url);
+  const { stepFrames, status, source, error } = useVisionPose(pack.poseKey, pack.referencePhoto?.url);
 
   return (
     <section className="rounded-3xl border border-teal-200 bg-gradient-to-br from-white to-teal-50/40 p-6 dark:border-teal-900 dark:from-zinc-950 dark:to-teal-950/20">
@@ -86,6 +86,7 @@ export function AsanaVisualStudio({
         caption={pack.simulationCaption}
         referenceImageUrl={pack.referencePhoto?.url}
         visionStatus={status}
+        visionSource={source}
         visionError={error}
         stepFrames={stepFrames}
         mode={tab === "immersive" ? "immersive" : tab === "anatomy" ? "anatomy" : "simulation"}
