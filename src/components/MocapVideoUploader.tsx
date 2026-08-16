@@ -95,7 +95,7 @@ export function MocapVideoUploader({ asanaSlug, onExtractComplete }: MocapVideoU
 
     try {
       setProgress(10);
-      const frames = await BrowserVideoExtractor.extractFrames(video, 5);
+      const { frames, metadata } = await BrowserVideoExtractor.extractFrames(video, 5);
 
       setProgress(35);
       const detected = await detectLandmarksOnFrames(frames);
@@ -104,8 +104,7 @@ export function MocapVideoUploader({ asanaSlug, onExtractComplete }: MocapVideoU
       const validFrames = detected.filter((f) => PoseQualityValidator.validateExtractedFrame(f));
       const keyframes = BrowserVideoExtractor.selectKeyframes(validFrames.length ? validFrames : detected, 5);
       const stability = PoseQualityValidator.computeStability(validFrames.length ? validFrames : detected);
-      const durationSec =
-        detected.length > 0 ? detected[detected.length - 1].timestamp / 1000 : 0;
+      const durationSec = metadata.duration;
       const confidence =
         validFrames.length > 0
           ? validFrames.reduce((s, f) => s + f.confidence, 0) / validFrames.length

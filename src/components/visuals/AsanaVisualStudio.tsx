@@ -8,6 +8,8 @@ import { VideoEmbedPanel } from "./VideoEmbedPanel";
 import { ReferencePhotoPanel, PhotoGallery } from "./ReferencePhotoPanel";
 import { AnnotatedAlignmentView } from "./AnnotatedAlignmentView";
 import { MocapVideoUploader } from "@/components/MocapVideoUploader";
+import { AugmentationReviewPanel } from "@/components/AugmentationReviewPanel";
+import { InstructorRecommendations } from "@/components/InstructorRecommendations";
 
 const BASE_TABS: { id: VisualTab; label: string }[] = [
   { id: "steps", label: "Step guide" },
@@ -118,8 +120,21 @@ export function AsanaVisualStudio({
         </p>
       ) : null}
 
-      <div className="mt-8 border-t border-zinc-200 pt-8 dark:border-zinc-800">
+      <div className="mt-8 space-y-6 border-t border-zinc-200 pt-8 dark:border-zinc-800">
         <MocapVideoUploader asanaSlug={pack.slug} />
+
+        <div className="border-t border-zinc-200 pt-6 dark:border-zinc-800">
+          <AugmentationReviewPanel asanaSlug={pack.slug} />
+        </div>
+
+        <div className="border-t border-zinc-200 pt-6 dark:border-zinc-800">
+          <InstructorRecommendations
+            asanaSlug={pack.slug}
+            studentExperience="beginner"
+            studentGoals={["flexibility", "balance"]}
+            preferredStyle="modern"
+          />
+        </div>
       </div>
     </section>
   );
