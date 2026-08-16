@@ -15,10 +15,11 @@ Synthetic 3D avatars, skeleton overlays, and guessed joint angles **cannot** rel
 
 ## How to improve further (realistic paths)
 
-1. **Your own instructor footage** — film each asana once; place MP4 at `public/media/yoga/{poseKey}.mp4` (best quality, full control).
-2. **Licensed mocap bundle** — e.g. CGTrader “30 Yoga Pose Animations” FBX/GLB → Three.js `AnimationMixer` (paid asset, one-time import).
-3. **NVIDIA GEM-X offline** — monocular video → 77-joint SOMA motion on GPU; export JSON/BVH per asana (`docs/vision-3d-pipeline.md`).
-4. **Per-pose dedicated YouTube** — replace general Iyengar class links with pose-specific verified IDs + `startSeconds`.
+1. **Hand-annotate keypoints** (recommended) — see `docs/ANNOTATION-GUIDE.md`. ~30 min/pose; high accuracy for teaching + future diagnosis. Three seed poses are live: trikonasana, adho-mukha-svanasana, vrikshasana.
+2. **Your own instructor footage** — film each asana; place MP4 at `public/media/yoga/{poseKey}.mp4`.
+3. **Licensed mocap bundle** — clinical-grade movement analysis.
+4. **Fine-tune MediaPipe on Yoga-82** — live camera generalization.
+5. **Text-only clinical lens** — anatomy tab + monograph (Vaidya Mitra); no visualization required.
 
 ## Adding a self-hosted video
 
