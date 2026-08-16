@@ -16,8 +16,8 @@ export default function HomePage() {
         </h1>
         <p className="mt-4 max-w-2xl text-base leading-7 text-teal-50">
           Explore asanas with classical, biomedical, and integrative layers kept
-          separate. Switch between Clinical, Wellness, Pedagogy, and Scholar
-          views without duplicating the underlying data.
+          separate. Each pose includes step simulations, reference photos,
+          instruction videos, and anatomy maps.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           <Link

@@ -28,6 +28,19 @@ npm run start
 
 Open **http://localhost:3000** after `npm run start`.
 
+## Visual studio (each asana)
+
+Every pose page includes four tabs:
+
+| Tab | Purpose |
+|-----|---------|
+| **Step simulation** | Auto-playing animated diagram: setup → entry → hold → refine |
+| **Reference photos** | Real-body alignment images (Wikimedia Commons) |
+| **Instruction video** | Embedded short YouTube demonstrations (Iyengar / instructional) |
+| **Anatomy map** | Highlighted load regions with clinical + Ayurveda notes |
+
+Explore cards show pose preview thumbnails. Open any asana (e.g. `/asana/trikonasana`) and use the tabs at the top.
+
 ## Project structure
 
 - `src/data/asana-catalog.json` — seed knowledge graph

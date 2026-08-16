@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getAllAsanas, getAsanaBySlug } from "@/lib/data/catalog";
+import { getVisualsForSlug } from "@/lib/visuals/catalog";
 import { AsanaDetailPanels } from "@/components/AsanaDetailPanels";
+import { AsanaVisualStudio } from "@/components/visuals/AsanaVisualStudio";
 import { LensControls } from "@/components/LensControls";
 import { EvidenceBadgeRow } from "@/components/EvidenceBadge";
 
@@ -16,6 +18,7 @@ export default async function AsanaDetailPage({
 }: PageProps<"/asana/[slug]">) {
   const { slug } = await params;
   const asana = getAsanaBySlug(slug);
+  const visuals = getVisualsForSlug(slug);
 
   if (!asana) {
     notFound();
@@ -42,6 +45,8 @@ export default async function AsanaDetailPage({
           <EvidenceBadgeRow codes={asana.evidenceCodes} />
         </div>
       </div>
+
+      {visuals ? <AsanaVisualStudio pack={visuals} /> : null}
 
       <LensControls />
       <AsanaDetailPanels asana={asana} />
