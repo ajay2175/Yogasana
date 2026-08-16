@@ -1,0 +1,35 @@
+[
+  {
+    "id": "yt_adorable_yoga_1",
+    "url": "https://youtube.com/watch?v=xoHvWZ8F7ZI",
+    "platform": "youtube",
+    "title": "30 Minute Yoga Flow - Everyday Yoga",
+    "channel": "Yoga With Adriene",
+    "instructor": "Adriene Mishler",
+    "topic": "yoga",
+    "description": "A gentle 30-minute yoga flow suitable for all levels",
+    "duration": 1800
+  },
+  {
+    "id": "yt_ayurveda_basics",
+    "url": "https://youtube.com/watch?v=dQw4w9WgXcQ",
+    "platform": "youtube",
+    "title": "Ayurveda 101: Introduction to Doshas",
+    "channel": "Ayurvedic Healing",
+    "instructor": "Ayurvedic Expert",
+    "topic": "ayurveda",
+    "description": "Learn the fundamentals of Ayurvedic doshas (Vata, Pitta, Kapha)",
+    "duration": 2400
+  },
+  {
+    "id": "vimeo_pranayama_1",
+    "url": "https://vimeo.com/123456789",
+    "platform": "vimeo",
+    "title": "Pranayama Techniques for Stress Relief",
+    "channel": "Breathing Academy",
+    "instructor": "Breath Coach",
+    "topic": "pranayama",
+    "description": "Advanced breathing techniques for relaxation and stress management",
+    "duration": 1500
+  }
+]
