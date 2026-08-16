@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import type { AsanaVisualPack, VisualTab } from "@/lib/types/visuals";
+import { useVisionPose } from "@/lib/visuals/use-vision-pose";
 
 const ImmersivePoseSimulator = dynamic(
   () =>
@@ -43,6 +44,7 @@ export function AsanaVisualStudio({
   poseName: string;
 }) {
   const [tab, setTab] = useState<VisualTab>("simulation3d");
+  const { stepFrames, status, error } = useVisionPose(pack.referencePhoto?.url);
 
   return (
     <section className="rounded-3xl border border-teal-200 bg-gradient-to-br from-white to-teal-50/40 p-6 dark:border-teal-900 dark:from-zinc-950 dark:to-teal-950/20">
@@ -50,10 +52,11 @@ export function AsanaVisualStudio({
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-teal-700 dark:text-teal-300">
           Immersive visual studio
         </p>
-        <h2 className="mt-1 text-2xl font-semibold">3D pose mimic — no external video links</h2>
+        <h2 className="mt-1 text-2xl font-semibold">Google Vision 3D pose mimic</h2>
         <p className="mt-2 max-w-2xl text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-          A procedural 3D avatar performs each asana step-by-step like a simulation video. Rotate
-          with drag, zoom with scroll, or use Enter AR / Enter VR on supported phones and headsets.
+          MediaPipe Pose Landmarker (Heavy) extracts 33 3D body landmarks from the reference photo.
+          Kalidokit retargets them to a rigged VRM humanoid — auto-playing setup → hold like a simulation
+          video. Orbit, zoom, or use Enter AR / Enter VR on supported devices.
         </p>
       </div>
 
@@ -81,6 +84,10 @@ export function AsanaVisualStudio({
         steps={pack.steps}
         anatomyRegions={pack.anatomyRegions}
         caption={pack.simulationCaption}
+        referenceImageUrl={pack.referencePhoto?.url}
+        visionStatus={status}
+        visionError={error}
+        stepFrames={stepFrames}
         mode={tab === "immersive" ? "immersive" : tab === "anatomy" ? "anatomy" : "simulation"}
       />
 
