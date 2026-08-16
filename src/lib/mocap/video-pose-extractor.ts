@@ -195,18 +195,18 @@ export class MediaPipePoseDetector {
   private poseDetector: any = null;
 
   async initialize() {
-    // Import MediaPipe dynamically
     const vision = await import("@mediapipe/tasks-vision");
     const { PoseLandmarker, FilesetResolver } = vision;
 
-    const wasmDir = "/mediapipe";
-    const filesetResolver = await FilesetResolver.forVisionTasks(wasmDir);
+    const filesetResolver = await FilesetResolver.forVisionTasks("/mediapipe/wasm");
 
     this.poseDetector = await PoseLandmarker.createFromOptions(filesetResolver, {
       baseOptions: {
-        modelAssetPath: `${wasmDir}/pose_landmarker_lite.task`,
+        modelAssetPath: "/mediapipe/pose_landmarker_lite.task",
+        delegate: "GPU",
       },
       runningMode: "IMAGE",
+      numPoses: 1,
     });
   }
 
