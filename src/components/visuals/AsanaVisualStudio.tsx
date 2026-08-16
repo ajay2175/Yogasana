@@ -2,13 +2,15 @@
 
 import { useState } from "react";
 import type { AsanaVisualPack, VisualTab } from "@/lib/types/visuals";
+import { getAnnotatedStep, getManualAnnotation, listAnnotatedPoseKeys } from "@/data/asana-annotations";
 import { StepGuidePlayer } from "./StepGuidePlayer";
 import { VideoEmbedPanel } from "./VideoEmbedPanel";
 import { ReferencePhotoPanel, PhotoGallery } from "./ReferencePhotoPanel";
+import { AnnotatedAlignmentView } from "./AnnotatedAlignmentView";
 
-const TABS: { id: VisualTab; label: string }[] = [
+const BASE_TABS: { id: VisualTab; label: string }[] = [
   { id: "steps", label: "Step guide" },
-  { id: "video", label: "Demonstration video" },
+  { id: "video", label: "Demonstration" },
   { id: "reference", label: "Reference photo" },
   { id: "anatomy", label: "Anatomy & load" },
 ];
@@ -20,9 +22,16 @@ export function AsanaVisualStudio({
   pack: AsanaVisualPack;
   poseName: string;
 }) {
-  const [tab, setTab] = useState<VisualTab>("steps");
+  const annotation = getManualAnnotation(pack.poseKey);
+  const hasAlignment = !!annotation;
+  const tabs = hasAlignment
+    ? [{ id: "alignment" as const, label: "Alignment map" }, ...BASE_TABS]
+    : BASE_TABS;
+
+  const [tab, setTab] = useState<VisualTab>(hasAlignment ? "alignment" : "steps");
   const photoUrl = pack.referencePhoto?.url ?? `/reference-poses/${pack.poseKey}.jpg`;
   const primaryVideo = pack.videos[0];
+  const holdStep = getAnnotatedStep(pack.poseKey, 3);
 
   return (
     <section className="rounded-3xl border border-teal-200 bg-gradient-to-br from-white to-teal-50/40 p-6 dark:border-teal-900 dark:from-zinc-950 dark:to-teal-950/20">
@@ -32,13 +41,14 @@ export function AsanaVisualStudio({
         </p>
         <h2 className="mt-1 text-2xl font-semibold">How to practice {poseName}</h2>
         <p className="mt-2 max-w-2xl text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-          Real reference photos and verified instructor videos — not synthetic 3D. Follow the step
-          guide, then watch the demonstration for alignment cues from an experienced teacher.
+          Step guide, verified demonstration videos, and — where annotated — instructor keypoints on
+          the reference photo. No synthetic 3D. Annotated poses:{" "}
+          {listAnnotatedPoseKeys().join(", ")}.
         </p>
       </div>
 
       <div className="mb-6 flex flex-wrap gap-2">
-        {TABS.map((item) => (
+        {tabs.map((item) => (
           <button
             key={item.id}
             type="button"
@@ -54,6 +64,10 @@ export function AsanaVisualStudio({
         ))}
       </div>
 
+      {tab === "alignment" && annotation && holdStep ? (
+        <AnnotatedAlignmentView annotation={annotation} step={holdStep} poseName={poseName} />
+      ) : null}
+
       {tab === "steps" ? (
         <StepGuidePlayer
           steps={pack.steps}
@@ -63,9 +77,7 @@ export function AsanaVisualStudio({
         />
       ) : null}
 
-      {tab === "video" && primaryVideo ? (
-        <VideoEmbedPanel video={primaryVideo} />
-      ) : null}
+      {tab === "video" && primaryVideo ? <VideoEmbedPanel video={primaryVideo} /> : null}
 
       {tab === "reference" && pack.referencePhoto ? (
         <>
@@ -97,6 +109,12 @@ export function AsanaVisualStudio({
           <p className="text-sm text-zinc-600 dark:text-zinc-400">{pack.biomechanicsCaption}</p>
           <p className="text-sm text-zinc-600 dark:text-zinc-400">{pack.simulationCaption}</p>
         </ul>
+      ) : null}
+
+      {!hasAlignment ? (
+        <p className="mt-4 text-xs text-amber-800 dark:text-amber-200">
+          Alignment map not yet annotated for this pose. See docs/ANNOTATION-GUIDE.md (~30 min to add).
+        </p>
       ) : null}
     </section>
   );
