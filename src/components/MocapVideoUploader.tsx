@@ -38,7 +38,7 @@ export function MocapVideoUploader({ asanaSlug, onExtractComplete }: MocapVideoU
     try {
       // Step 1: Extract frames from video
       setProgress(10);
-      const frames = await BrowserVideoExtractor.extractFrames(video, 5); // 5 FPS
+      const { frames, metadata } = await BrowserVideoExtractor.extractFrames(video, 5); // 5 FPS
 
       setProgress(40);
       // Step 2: Select keyframes
@@ -56,13 +56,14 @@ export function MocapVideoUploader({ asanaSlug, onExtractComplete }: MocapVideoU
       const extractionResult = {
         poseId: `${asanaSlug}_${Date.now()}`,
         asanaSlug,
-        totalFrames: frames.length,
+        totalFrames: metadata.totalFrames,
         validFrames: validFrames.length,
         keyframesCount: keyframes.length,
         confidence: validFrames.length > 0 ? 0.85 : 0,
         stability,
-        duration: video.duration,
+        duration: metadata.duration,
         extractedAt: new Date().toISOString(),
+        videoDimensions: metadata.videoDimensions,
         message:
           validFrames.length > 0
             ? `✅ Extracted ${validFrames.length}/${frames.length} valid frames. Stability: ${(stability * 100).toFixed(0)}%`

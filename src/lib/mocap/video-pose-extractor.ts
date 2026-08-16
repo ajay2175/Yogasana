@@ -12,6 +12,13 @@ export interface ExtractedFrame {
   imageBase64?: string; // optional frame thumbnail
 }
 
+export interface ExtractionMetadata {
+  totalFrames: number;
+  duration: number; // seconds
+  fps: number;
+  videoDimensions: { width: number; height: number };
+}
+
 export interface Landmark {
   x: number;
   y: number;
@@ -45,7 +52,7 @@ export class BrowserVideoExtractor {
   static async extractFrames(
     videoFile: File,
     framesPerSecond: number = 5
-  ): Promise<ExtractedFrame[]> {
+  ): Promise<{ frames: ExtractedFrame[]; metadata: ExtractionMetadata }> {
     return new Promise((resolve, reject) => {
       const video = document.createElement("video");
       const canvas = document.createElement("canvas");
@@ -72,7 +79,15 @@ export class BrowserVideoExtractor {
           const extractNextFrame = () => {
             const time = frameNumber * frameInterval;
             if (time > duration) {
-              resolve(frames);
+              resolve({
+                frames,
+                metadata: {
+                  totalFrames: frames.length,
+                  duration,
+                  fps: framesPerSecond,
+                  videoDimensions: { width: canvas.width, height: canvas.height },
+                },
+              });
               return;
             }
 
