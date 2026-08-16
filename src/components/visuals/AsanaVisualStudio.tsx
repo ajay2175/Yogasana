@@ -44,7 +44,7 @@ export function AsanaVisualStudio({
   poseName: string;
 }) {
   const [tab, setTab] = useState<VisualTab>("simulation3d");
-  const { stepFrames, status, source, error } = useVisionPose(pack.poseKey, pack.referencePhoto?.url);
+  const { stepFrames, status, source, error, photoUrl } = useVisionPose(pack.poseKey, pack.referencePhoto?.url);
 
   return (
     <section className="rounded-3xl border border-teal-200 bg-gradient-to-br from-white to-teal-50/40 p-6 dark:border-teal-900 dark:from-zinc-950 dark:to-teal-950/20">
@@ -52,11 +52,11 @@ export function AsanaVisualStudio({
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-teal-700 dark:text-teal-300">
           Immersive visual studio
         </p>
-        <h2 className="mt-1 text-2xl font-semibold">Google Vision 3D pose mimic</h2>
+        <h2 className="mt-1 text-2xl font-semibold">Photo-aligned pose simulation</h2>
         <p className="mt-2 max-w-2xl text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-          MediaPipe Pose Landmarker (Heavy) extracts 33 3D body landmarks from the reference photo.
-          Kalidokit retargets them to a rigged VRM humanoid — auto-playing setup → hold like a simulation
-          video. Orbit, zoom, or use Enter AR / Enter VR on supported devices.
+          Each asana uses a real reference photo with a skeleton overlay matched to classical pose geometry
+          (triangle, tree, downward dog, etc.). MediaPipe refines alignment when the photo loads. Switch to 3D
+          orbit or AR for spatial view.
         </p>
       </div>
 
@@ -84,7 +84,7 @@ export function AsanaVisualStudio({
         steps={pack.steps}
         anatomyRegions={pack.anatomyRegions}
         caption={pack.simulationCaption}
-        referenceImageUrl={pack.referencePhoto?.url}
+        photoUrl={photoUrl}
         visionStatus={status}
         visionSource={source}
         visionError={error}
