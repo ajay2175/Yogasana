@@ -7,6 +7,7 @@ import { StepGuidePlayer } from "./StepGuidePlayer";
 import { VideoEmbedPanel } from "./VideoEmbedPanel";
 import { ReferencePhotoPanel, PhotoGallery } from "./ReferencePhotoPanel";
 import { AnnotatedAlignmentView } from "./AnnotatedAlignmentView";
+import { MocapVideoUploader } from "@/components/MocapVideoUploader";
 
 const BASE_TABS: { id: VisualTab; label: string }[] = [
   { id: "steps", label: "Step guide" },
@@ -116,6 +117,10 @@ export function AsanaVisualStudio({
           Alignment map not yet annotated for this pose. See docs/ANNOTATION-GUIDE.md (~30 min to add).
         </p>
       ) : null}
+
+      <div className="mt-8 border-t border-zinc-200 pt-8 dark:border-zinc-800">
+        <MocapVideoUploader asanaSlug={pack.slug} />
+      </div>
     </section>
   );
 }
