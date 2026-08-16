@@ -30,21 +30,16 @@ Open **http://localhost:3000** after `npm run start`.
 
 ## Visual studio (each asana)
 
-Each pose detail page uses a **Google Vision → VRM 3D pipeline** (no YouTube embeds):
+Honest instruction — **no synthetic 3D simulation**:
 
-| Layer | Technology |
-|-------|------------|
-| Pose extraction | Google **MediaPipe Pose Landmarker (Heavy)** — 33 3D landmarks from reference photo |
-| Retargeting | **Kalidokit** bone solver |
-| Avatar | Rigged **VRM** humanoid + WebXR AR/VR |
+| Tab | Content |
+|-----|---------|
+| **Step guide** | Reference photo + 4 auto-playing setup/hold steps |
+| **Demonstration video** | Verified YouTube (Yoga With Adriene, Iyengar, etc.) |
+| **Reference photo** | Local image in `public/reference-poses/` |
+| **Anatomy & load** | Clinical + Ayurveda notes from the monograph |
 
-| Mode | Purpose |
-|------|---------|
-| **3D simulation video** | Auto-playing VRM avatar: setup → entry → hold → refine |
-| **VR / AR view** | Orbit in 3D; **Enter AR** / **Enter VR** on supported phones & headsets |
-| **3D anatomy overlay** | Anatomy notes alongside the vision-driven avatar |
-
-First load analyzes the reference photo (~15 MB MediaPipe model, cached). See `docs/vision-3d-pipeline.md` for NVIDIA Kimodo offline motion generation (Phase 2).
+See `docs/INSTRUCTION-MEDIA.md` for why 3D auto-generation was removed and how to add instructor MP4 or mocap later.
 
 ## Project structure
 

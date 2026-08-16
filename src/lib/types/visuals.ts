@@ -1,4 +1,4 @@
-export type VisualTab = "simulation3d" | "immersive" | "anatomy";
+export type VisualTab = "steps" | "video" | "reference" | "anatomy";
 
 export interface SimulationStep {
   id: string;

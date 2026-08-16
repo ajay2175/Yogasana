@@ -1,39 +1,16 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { useState } from "react";
 import type { AsanaVisualPack, VisualTab } from "@/lib/types/visuals";
-import { useVisionPose } from "@/lib/visuals/use-vision-pose";
+import { StepGuidePlayer } from "./StepGuidePlayer";
+import { VideoEmbedPanel } from "./VideoEmbedPanel";
+import { ReferencePhotoPanel, PhotoGallery } from "./ReferencePhotoPanel";
 
-const ImmersivePoseSimulator = dynamic(
-  () =>
-    import("./three/ImmersivePoseSimulator").then((mod) => mod.ImmersivePoseSimulator),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="flex h-[min(70vh,520px)] items-center justify-center rounded-2xl bg-slate-900 text-sm text-teal-200">
-        Loading 3D pose simulator…
-      </div>
-    ),
-  },
-);
-
-const TABS: { id: VisualTab; label: string; hint: string }[] = [
-  {
-    id: "simulation3d",
-    label: "3D simulation video",
-    hint: "Auto-playing avatar mimics entry → hold → refine",
-  },
-  {
-    id: "immersive",
-    label: "VR / AR view",
-    hint: "Orbit in 3D or enter AR/VR on supported devices",
-  },
-  {
-    id: "anatomy",
-    label: "3D anatomy overlay",
-    hint: "Loaded regions highlighted on the avatar",
-  },
+const TABS: { id: VisualTab; label: string }[] = [
+  { id: "steps", label: "Step guide" },
+  { id: "video", label: "Demonstration video" },
+  { id: "reference", label: "Reference photo" },
+  { id: "anatomy", label: "Anatomy & load" },
 ];
 
 export function AsanaVisualStudio({
@@ -43,20 +20,20 @@ export function AsanaVisualStudio({
   pack: AsanaVisualPack;
   poseName: string;
 }) {
-  const [tab, setTab] = useState<VisualTab>("simulation3d");
-  const { stepFrames, status, source, error, photoUrl } = useVisionPose(pack.poseKey, pack.referencePhoto?.url);
+  const [tab, setTab] = useState<VisualTab>("steps");
+  const photoUrl = pack.referencePhoto?.url ?? `/reference-poses/${pack.poseKey}.jpg`;
+  const primaryVideo = pack.videos[0];
 
   return (
     <section className="rounded-3xl border border-teal-200 bg-gradient-to-br from-white to-teal-50/40 p-6 dark:border-teal-900 dark:from-zinc-950 dark:to-teal-950/20">
       <div className="mb-4">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-teal-700 dark:text-teal-300">
-          Immersive visual studio
+          Instruction studio
         </p>
-        <h2 className="mt-1 text-2xl font-semibold">Photo-aligned pose simulation</h2>
+        <h2 className="mt-1 text-2xl font-semibold">How to practice {poseName}</h2>
         <p className="mt-2 max-w-2xl text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-          Each asana uses a real reference photo with a skeleton overlay matched to classical pose geometry
-          (triangle, tree, downward dog, etc.). MediaPipe refines alignment when the photo loads. Switch to 3D
-          orbit or AR for spatial view.
+          Real reference photos and verified instructor videos — not synthetic 3D. Follow the step
+          guide, then watch the demonstration for alignment cues from an experienced teacher.
         </p>
       </div>
 
@@ -71,29 +48,38 @@ export function AsanaVisualStudio({
                 ? "bg-teal-700 text-white"
                 : "border border-zinc-200 bg-white text-zinc-700 hover:border-teal-300 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300"
             }`}
-            title={item.hint}
           >
             {item.label}
           </button>
         ))}
       </div>
 
-      <ImmersivePoseSimulator
-        poseKey={pack.poseKey}
-        poseName={poseName}
-        steps={pack.steps}
-        anatomyRegions={pack.anatomyRegions}
-        caption={pack.simulationCaption}
-        photoUrl={photoUrl}
-        visionStatus={status}
-        visionSource={source}
-        visionError={error}
-        stepFrames={stepFrames}
-        mode={tab === "immersive" ? "immersive" : tab === "anatomy" ? "anatomy" : "simulation"}
-      />
+      {tab === "steps" ? (
+        <StepGuidePlayer
+          steps={pack.steps}
+          photoUrl={photoUrl}
+          poseName={poseName}
+          alt={pack.referencePhoto?.alt ?? `${poseName} reference`}
+        />
+      ) : null}
+
+      {tab === "video" && primaryVideo ? (
+        <VideoEmbedPanel video={primaryVideo} />
+      ) : null}
+
+      {tab === "reference" && pack.referencePhoto ? (
+        <>
+          <ReferencePhotoPanel photo={pack.referencePhoto} />
+          {pack.gallery?.length ? (
+            <div className="mt-6">
+              <PhotoGallery photos={pack.gallery} />
+            </div>
+          ) : null}
+        </>
+      ) : null}
 
       {tab === "anatomy" ? (
-        <ul className="mt-6 space-y-3">
+        <ul className="space-y-3">
           {pack.anatomyRegions.map((region) => (
             <li
               key={region.id}
@@ -109,6 +95,7 @@ export function AsanaVisualStudio({
             </li>
           ))}
           <p className="text-sm text-zinc-600 dark:text-zinc-400">{pack.biomechanicsCaption}</p>
+          <p className="text-sm text-zinc-600 dark:text-zinc-400">{pack.simulationCaption}</p>
         </ul>
       ) : null}
     </section>

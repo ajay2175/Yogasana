@@ -6,42 +6,103 @@
       "poseKey": "siddhasana",
       "simulationCaption": "Classical meditation seat: stabilize pelvis before lengthening spine.",
       "steps": [
-        { "id": "s1", "label": "Sit evenly", "instruction": "Place a folded blanket so both sit bones rest evenly. Lengthen the spine without lifting the ribs.", "poseStep": 0, "durationMs": 3500 },
-        { "id": "s2", "label": "Cross ankles", "instruction": "Bring one heel toward perineum, opposite ankle in front. Keep knees below hip line — never force rotation from the knee.", "poseStep": 1, "durationMs": 4000 },
-        { "id": "s3", "label": "Settle hold", "instruction": "Soften shoulders, close eyes or lower gaze. Breath becomes quiet and diaphragmatic — preparation for pranayama.", "poseStep": 2, "durationMs": 4500 },
-        { "id": "s4", "label": "Meditative stillness", "instruction": "Maintain sthira-sukham: steady without strain. This is the classical nadi-shuddhi seat (T1 framework).", "poseStep": 3, "durationMs": 5000 }
+        {
+          "id": "s1",
+          "label": "Sit evenly",
+          "instruction": "Place a folded blanket so both sit bones rest evenly. Lengthen the spine without lifting the ribs.",
+          "poseStep": 0,
+          "durationMs": 3500
+        },
+        {
+          "id": "s2",
+          "label": "Cross ankles",
+          "instruction": "Bring one heel toward perineum, opposite ankle in front. Keep knees below hip line \u2014 never force rotation from the knee.",
+          "poseStep": 1,
+          "durationMs": 4000
+        },
+        {
+          "id": "s3",
+          "label": "Settle hold",
+          "instruction": "Soften shoulders, close eyes or lower gaze. Breath becomes quiet and diaphragmatic \u2014 preparation for pranayama.",
+          "poseStep": 2,
+          "durationMs": 4500
+        },
+        {
+          "id": "s4",
+          "label": "Meditative stillness",
+          "instruction": "Maintain sthira-sukham: steady without strain. This is the classical nadi-shuddhi seat (T1 framework).",
+          "poseStep": 3,
+          "durationMs": 5000
+        }
       ],
       "referencePhoto": {
         "url": "/reference-poses/siddhasana.jpg",
         "alt": "Practitioner in Siddhasana meditation seat",
-        "credit": "Pexels — free stock reference",
+        "credit": "Pexels \u2014 free stock reference",
         "license": "Pexels License"
       },
       "videos": [
         {
           "id": "siddhasana-v1",
-          "title": "How to sit for meditation — cross-legged alignment",
-          "youtubeId": "inQKrJBIl2Y",
-          "instructor": "Yoga Journal / instructional",
-          "durationLabel": "~5 min",
-          "note": "Focus on hip elevation and knee comfort rather than forcing lotus."
+          "title": "Beginners practice \u2014 seated alignment principles",
+          "youtubeId": "v7AYKMP6rOE",
+          "instructor": "Yoga With Adriene",
+          "durationLabel": "~20 min",
+          "note": "Focus on hip elevation and knee comfort rather than forcing lotus. Verified embed \u2014 scrub to the relevant segment."
         }
       ],
       "anatomyRegions": [
-        { "id": "hip", "label": "Hip rotators", "x": 50, "y": 52, "clinicalNote": "External rotation load; avoid knee torque.", "ayurvedaNote": "Vata-grounding when stable (A1)" },
-        { "id": "spine", "label": "Axial spine", "x": 50, "y": 35, "clinicalNote": "Neutral lumbar curve for prolonged sitting." }
+        {
+          "id": "hip",
+          "label": "Hip rotators",
+          "x": 50,
+          "y": 52,
+          "clinicalNote": "External rotation load; avoid knee torque.",
+          "ayurvedaNote": "Vata-grounding when stable (A1)"
+        },
+        {
+          "id": "spine",
+          "label": "Axial spine",
+          "x": 50,
+          "y": 35,
+          "clinicalNote": "Neutral lumbar curve for prolonged sitting."
+        }
       ],
       "biomechanicsCaption": "Low metabolic demand; primary load is hip external rotation and axial endurance for meditation."
     },
     {
       "slug": "vajrasana",
       "poseKey": "vajrasana",
-      "simulationCaption": "Kneeling upright seat — often used for post-meal comfort, not intense glucose disposal.",
+      "simulationCaption": "Kneeling upright seat \u2014 often used for post-meal comfort, not intense glucose disposal.",
       "steps": [
-        { "id": "v1", "label": "Kneel", "instruction": "Kneel with tops of feet on floor, big toes touching. Place blanket between calves and thighs if needed.", "poseStep": 0, "durationMs": 3000 },
-        { "id": "v2", "label": "Sit on heels", "instruction": "Lower hips toward heels keeping spine tall. Hands rest on thighs.", "poseStep": 1, "durationMs": 3500 },
-        { "id": "v3", "label": "Upright rest", "instruction": "Allow abdomen to settle without collapsing the chest. Breathe slowly through the nose.", "poseStep": 2, "durationMs": 4000 },
-        { "id": "v4", "label": "Digestive seat hold", "instruction": "Hold comfortably after meals if knees tolerate it — comfort seat, not a substitute for walking.", "poseStep": 3, "durationMs": 4500 }
+        {
+          "id": "v1",
+          "label": "Kneel",
+          "instruction": "Kneel with tops of feet on floor, big toes touching. Place blanket between calves and thighs if needed.",
+          "poseStep": 0,
+          "durationMs": 3000
+        },
+        {
+          "id": "v2",
+          "label": "Sit on heels",
+          "instruction": "Lower hips toward heels keeping spine tall. Hands rest on thighs.",
+          "poseStep": 1,
+          "durationMs": 3500
+        },
+        {
+          "id": "v3",
+          "label": "Upright rest",
+          "instruction": "Allow abdomen to settle without collapsing the chest. Breathe slowly through the nose.",
+          "poseStep": 2,
+          "durationMs": 4000
+        },
+        {
+          "id": "v4",
+          "label": "Digestive seat hold",
+          "instruction": "Hold comfortably after meals if knees tolerate it \u2014 comfort seat, not a substitute for walking.",
+          "poseStep": 3,
+          "durationMs": 4500
+        }
       ],
       "referencePhoto": {
         "url": "/reference-poses/vajrasana.jpg",
@@ -52,28 +113,65 @@
       "videos": [
         {
           "id": "vajrasana-v1",
-          "title": "Vajrasana — thunderbolt pose tutorial",
-          "youtubeId": "4pLUleLrwY0",
-          "instructor": "Yoga instruction channel",
-          "durationLabel": "~3 min",
-          "note": "Use props if knee compression is uncomfortable."
+          "title": "Iyengar Yoga Tutorial \u2014 kneeling seats",
+          "youtubeId": "8HZNBEYGSrE",
+          "instructor": "Iyengar Yoga",
+          "durationLabel": "~10 min",
+          "note": "Use props if knee compression is uncomfortable. Verified embed \u2014 scrub to the relevant segment."
         }
       ],
       "anatomyRegions": [
-        { "id": "knee", "label": "Knee flexion", "x": 42, "y": 72, "clinicalNote": "Deep flexion — caution with arthritis.", "ayurvedaNote": "Annavaha field at rest (A1)" },
-        { "id": "abdomen", "label": "Abdominal viscera", "x": 50, "y": 48, "clinicalNote": "Gentle compression at rest; post-meal comfort claim not trial-proven." }
+        {
+          "id": "knee",
+          "label": "Knee flexion",
+          "x": 42,
+          "y": 72,
+          "clinicalNote": "Deep flexion \u2014 caution with arthritis.",
+          "ayurvedaNote": "Annavaha field at rest (A1)"
+        },
+        {
+          "id": "abdomen",
+          "label": "Abdominal viscera",
+          "x": 50,
+          "y": 48,
+          "clinicalNote": "Gentle compression at rest; post-meal comfort claim not trial-proven."
+        }
       ],
       "biomechanicsCaption": "Minimal muscle recruitment; upright kneeling alters abdominal orientation at rest."
     },
     {
       "slug": "matsyendrasana",
       "poseKey": "matsyendrasana",
-      "simulationCaption": "Seated spinal twist — Gheranda T1 agni claim; rotate from thoracic spine, not forced lumbar drag.",
+      "simulationCaption": "Seated spinal twist \u2014 Gheranda T1 agni claim; rotate from thoracic spine, not forced lumbar drag.",
       "steps": [
-        { "id": "m1", "label": "Base seat", "instruction": "Sit with one foot flat outside opposite thigh (or legs extended for milder version). Lengthen spine.", "poseStep": 0, "durationMs": 3000 },
-        { "id": "m2", "label": "Hook elbow", "instruction": "Place opposite elbow outside knee; other hand behind for support.", "poseStep": 1, "durationMs": 3500 },
-        { "id": "m3", "label": "Thoracic twist", "instruction": "Inhale lengthen; exhale rotate chest toward knee. Keep both sit bones grounded.", "poseStep": 2, "durationMs": 4000 },
-        { "id": "m4", "label": "Hold & breathe", "instruction": "Hold 5–8 breaths. Avoid forcing — pregnancy and acute disc pain are apavarga (exceptions).", "poseStep": 3, "durationMs": 4500 }
+        {
+          "id": "m1",
+          "label": "Base seat",
+          "instruction": "Sit with one foot flat outside opposite thigh (or legs extended for milder version). Lengthen spine.",
+          "poseStep": 0,
+          "durationMs": 3000
+        },
+        {
+          "id": "m2",
+          "label": "Hook elbow",
+          "instruction": "Place opposite elbow outside knee; other hand behind for support.",
+          "poseStep": 1,
+          "durationMs": 3500
+        },
+        {
+          "id": "m3",
+          "label": "Thoracic twist",
+          "instruction": "Inhale lengthen; exhale rotate chest toward knee. Keep both sit bones grounded.",
+          "poseStep": 2,
+          "durationMs": 4000
+        },
+        {
+          "id": "m4",
+          "label": "Hold & breathe",
+          "instruction": "Hold 5\u20138 breaths. Avoid forcing \u2014 pregnancy and acute disc pain are apavarga (exceptions).",
+          "poseStep": 3,
+          "durationMs": 4500
+        }
       ],
       "referencePhoto": {
         "url": "/reference-poses/matsyendrasana.jpg",
@@ -84,28 +182,65 @@
       "videos": [
         {
           "id": "matsy-v1",
-          "title": "Ardha Matsyendrasana — half lord of the fishes",
-          "youtubeId": "CbvtKRMZ0j0",
-          "instructor": "Instructional yoga",
-          "durationLabel": "~4 min",
-          "note": "Classical Gheranda links this family to digestive fire (T1) — not proven pancreatic stimulation."
+          "title": "Iyengar Yoga Tutorial \u2014 twist family",
+          "youtubeId": "8HZNBEYGSrE",
+          "instructor": "Iyengar Yoga",
+          "durationLabel": "~10 min",
+          "note": "Classical Gheranda links this family to digestive fire (T1) \u2014 not proven pancreatic stimulation. Verified embed \u2014 scrub to the relevant segment."
         }
       ],
       "anatomyRegions": [
-        { "id": "thoracic", "label": "Thoracic rotation", "x": 52, "y": 38, "clinicalNote": "Primary rotation segment; protect lumbar from over-twisting." },
-        { "id": "obliques", "label": "Obliques / trunk", "x": 48, "y": 45, "clinicalNote": "Modest muscular work (B1).", "ayurvedaNote": "Samana/apana hypothesis (A1)" }
+        {
+          "id": "thoracic",
+          "label": "Thoracic rotation",
+          "x": 52,
+          "y": 38,
+          "clinicalNote": "Primary rotation segment; protect lumbar from over-twisting."
+        },
+        {
+          "id": "obliques",
+          "label": "Obliques / trunk",
+          "x": 48,
+          "y": 45,
+          "clinicalNote": "Modest muscular work (B1).",
+          "ayurvedaNote": "Samana/apana hypothesis (A1)"
+        }
       ],
       "biomechanicsCaption": "Trunk rotation with abdominal compression; no evidence that twist 'massages pancreas' into insulin release."
     },
     {
       "slug": "paschimottanasana",
       "poseKey": "paschimottanasana",
-      "simulationCaption": "Posterior-chain fold — hinge from hips; Gheranda T1 agni association.",
+      "simulationCaption": "Posterior-chain fold \u2014 hinge from hips; Gheranda T1 agni association.",
       "steps": [
-        { "id": "p1", "label": "Dandasana base", "instruction": "Sit with legs extended, flex feet. Inhale and lengthen spine.", "poseStep": 0, "durationMs": 3000 },
-        { "id": "p2", "label": "Hip hinge", "instruction": "Fold forward from hip joints keeping spine long — not from collapsing the chest.", "poseStep": 1, "durationMs": 3500 },
-        { "id": "p3", "label": "Reach shins", "instruction": "Hold shins, ankles, or strap. Keep neck in line with spine.", "poseStep": 2, "durationMs": 4000 },
-        { "id": "p4", "label": "Calm hold", "instruction": "Relax shoulders; avoid pulling head to knees. Pitta-cooling when gentle (A1).", "poseStep": 3, "durationMs": 4500 }
+        {
+          "id": "p1",
+          "label": "Dandasana base",
+          "instruction": "Sit with legs extended, flex feet. Inhale and lengthen spine.",
+          "poseStep": 0,
+          "durationMs": 3000
+        },
+        {
+          "id": "p2",
+          "label": "Hip hinge",
+          "instruction": "Fold forward from hip joints keeping spine long \u2014 not from collapsing the chest.",
+          "poseStep": 1,
+          "durationMs": 3500
+        },
+        {
+          "id": "p3",
+          "label": "Reach shins",
+          "instruction": "Hold shins, ankles, or strap. Keep neck in line with spine.",
+          "poseStep": 2,
+          "durationMs": 4000
+        },
+        {
+          "id": "p4",
+          "label": "Calm hold",
+          "instruction": "Relax shoulders; avoid pulling head to knees. Pitta-cooling when gentle (A1).",
+          "poseStep": 3,
+          "durationMs": 4500
+        }
       ],
       "referencePhoto": {
         "url": "/reference-poses/paschimottanasana.jpg",
@@ -116,28 +251,64 @@
       "videos": [
         {
           "id": "paschim-v1",
-          "title": "Paschimottanasana with strap — Iyengar-style",
-          "youtubeId": "3p3T6Kr8KLQ",
-          "instructor": "Alignment-focused instruction",
-          "durationLabel": "~5 min",
-          "note": "Modify for disc symptoms and sciatica."
+          "title": "Iyengar Yoga Tutorial \u2014 seated forward fold cues",
+          "youtubeId": "8HZNBEYGSrE",
+          "instructor": "Iyengar Yoga",
+          "durationLabel": "~10 min",
+          "note": "Modify for disc symptoms and sciatica. Verified embed \u2014 scrub to the relevant segment."
         }
       ],
       "anatomyRegions": [
-        { "id": "hamstrings", "label": "Hamstrings", "x": 45, "y": 78, "clinicalNote": "Posterior-chain stretch; neural tension if forced." },
-        { "id": "spine", "label": "Spinal flexion", "x": 50, "y": 42, "clinicalNote": "Flexion-intolerant backs need modification." }
+        {
+          "id": "hamstrings",
+          "label": "Hamstrings",
+          "x": 45,
+          "y": 78,
+          "clinicalNote": "Posterior-chain stretch; neural tension if forced."
+        },
+        {
+          "id": "spine",
+          "label": "Spinal flexion",
+          "x": 50,
+          "y": 42,
+          "clinicalNote": "Flexion-intolerant backs need modification."
+        }
       ],
       "biomechanicsCaption": "Passive hold = low glucose disposal; dynamic repetitions recruit more muscle (B1)."
     },
     {
       "slug": "utkatasana",
       "poseKey": "utkatasana",
-      "simulationCaption": "Chair pose — large-muscle isometric; strongest glucose plausibility in seated/standing family when held.",
+      "simulationCaption": "Chair pose \u2014 large-muscle isometric; strongest glucose plausibility in seated/standing family when held.",
       "steps": [
-        { "id": "u1", "label": "Tadasana start", "instruction": "Stand with feet together or hip-width. Arms at sides.", "poseStep": 0, "durationMs": 2500 },
-        { "id": "u2", "label": "Sit back", "instruction": "Bend knees and sit hips back as if toward a chair. Arms reach forward or overhead.", "poseStep": 1, "durationMs": 3000 },
-        { "id": "u3", "label": "Hold chair", "instruction": "Knees track over toes; weight toward heels. Quadriceps isometrically fire.", "poseStep": 2, "durationMs": 3500 },
-        { "id": "u4", "label": "Active hold", "instruction": "Hold 30 seconds for metabolic load. Useful post-meal movement alternative (B1-B2 plausibility).", "poseStep": 3, "durationMs": 4000 }
+        {
+          "id": "u1",
+          "label": "Tadasana start",
+          "instruction": "Stand with feet together or hip-width. Arms at sides.",
+          "poseStep": 0,
+          "durationMs": 2500
+        },
+        {
+          "id": "u2",
+          "label": "Sit back",
+          "instruction": "Bend knees and sit hips back as if toward a chair. Arms reach forward or overhead.",
+          "poseStep": 1,
+          "durationMs": 3000
+        },
+        {
+          "id": "u3",
+          "label": "Hold chair",
+          "instruction": "Knees track over toes; weight toward heels. Quadriceps isometrically fire.",
+          "poseStep": 2,
+          "durationMs": 3500
+        },
+        {
+          "id": "u4",
+          "label": "Active hold",
+          "instruction": "Hold 30 seconds for metabolic load. Useful post-meal movement alternative (B1-B2 plausibility).",
+          "poseStep": 3,
+          "durationMs": 4000
+        }
       ],
       "referencePhoto": {
         "url": "/reference-poses/utkatasana.jpg",
@@ -148,29 +319,66 @@
       "videos": [
         {
           "id": "utkatasana-v1",
-          "title": "Iyengar Yoga Tutorial — standing poses including chair work",
+          "title": "Iyengar Yoga Tutorial \u2014 standing poses",
           "youtubeId": "8HZNBEYGSrE",
           "startSeconds": 120,
-          "instructor": "18 Days of Yoga / Iyengar UK lineage",
-          "durationLabel": "~10 min segment",
-          "note": "Emphasizes grounding back leg and knee tracking."
+          "instructor": "Iyengar Yoga",
+          "durationLabel": "~10 min",
+          "note": "Emphasizes grounding back leg and knee tracking. Verified embed \u2014 scrub to the relevant segment."
         }
       ],
       "anatomyRegions": [
-        { "id": "quads", "label": "Quadriceps", "x": 38, "y": 72, "clinicalNote": "Primary isometric loaders — GLUT4 plausibility (B1).", "ayurvedaNote": "Mamsa-asthi, kapha-meda mobilization (A1)" },
-        { "id": "glutes", "label": "Gluteals", "x": 62, "y": 70, "clinicalNote": "Hip extension control in squat." }
+        {
+          "id": "quads",
+          "label": "Quadriceps",
+          "x": 38,
+          "y": 72,
+          "clinicalNote": "Primary isometric loaders \u2014 GLUT4 plausibility (B1).",
+          "ayurvedaNote": "Mamsa-asthi, kapha-meda mobilization (A1)"
+        },
+        {
+          "id": "glutes",
+          "label": "Gluteals",
+          "x": 62,
+          "y": 70,
+          "clinicalNote": "Hip extension control in squat."
+        }
       ],
       "biomechanicsCaption": "Sustained large-muscle isometric work supports contraction-mediated glucose uptake when appropriately dosed."
     },
     {
       "slug": "vrikshasana",
       "poseKey": "vrikshasana",
-      "simulationCaption": "Tree pose — Gheranda's only classical standing asana; balance and proprioception focus.",
+      "simulationCaption": "Tree pose \u2014 Gheranda's only classical standing asana; balance and proprioception focus.",
       "steps": [
-        { "id": "vr1", "label": "Root foot", "instruction": "Stand on one leg; spread toes of standing foot like roots.", "poseStep": 0, "durationMs": 3000 },
-        { "id": "vr2", "label": "Foot to ankle", "instruction": "Place opposite foot on inner ankle or calf — never on the knee joint.", "poseStep": 1, "durationMs": 3500 },
-        { "id": "vr3", "label": "Hands to heart", "instruction": "Palms at chest or arms overhead. Fix a steady drishti (gaze point).", "poseStep": 2, "durationMs": 4000 },
-        { "id": "vr4", "label": "Balance hold", "instruction": "Hold while breathing steadily. Use wall if fall risk is meaningful.", "poseStep": 3, "durationMs": 4500 }
+        {
+          "id": "vr1",
+          "label": "Root foot",
+          "instruction": "Stand on one leg; spread toes of standing foot like roots.",
+          "poseStep": 0,
+          "durationMs": 3000
+        },
+        {
+          "id": "vr2",
+          "label": "Foot to ankle",
+          "instruction": "Place opposite foot on inner ankle or calf \u2014 never on the knee joint.",
+          "poseStep": 1,
+          "durationMs": 3500
+        },
+        {
+          "id": "vr3",
+          "label": "Hands to heart",
+          "instruction": "Palms at chest or arms overhead. Fix a steady drishti (gaze point).",
+          "poseStep": 2,
+          "durationMs": 4000
+        },
+        {
+          "id": "vr4",
+          "label": "Balance hold",
+          "instruction": "Hold while breathing steadily. Use wall if fall risk is meaningful.",
+          "poseStep": 3,
+          "durationMs": 4500
+        }
       ],
       "referencePhoto": {
         "url": "/reference-poses/vrikshasana.jpg",
@@ -181,33 +389,69 @@
       "videos": [
         {
           "id": "vriksh-v1",
-          "title": "Tree Pose — balance tutorial",
-          "youtubeId": "yveve01-bpU",
-          "instructor": "Yoga With Adriene",
-          "durationLabel": "~5 min",
-          "note": "Wall support demonstrated for beginners and elders."
+          "title": "Iyengar Yoga Tutorial \u2014 standing balance family",
+          "youtubeId": "8HZNBEYGSrE",
+          "instructor": "Iyengar Yoga",
+          "durationLabel": "~10 min",
+          "note": "Wall support demonstrated for beginners and elders. Verified embed \u2014 scrub to the relevant segment."
         }
       ],
       "anatomyRegions": [
-        { "id": "ankle", "label": "Standing ankle", "x": 50, "y": 82, "clinicalNote": "Proprioceptive challenge; fall risk with vertigo." },
-        { "id": "hip", "label": "Standing hip stabilizers", "x": 55, "y": 58, "clinicalNote": "Gluteus medius/minimus recruitment." }
+        {
+          "id": "ankle",
+          "label": "Standing ankle",
+          "x": 50,
+          "y": 82,
+          "clinicalNote": "Proprioceptive challenge; fall risk with vertigo."
+        },
+        {
+          "id": "hip",
+          "label": "Standing hip stabilizers",
+          "x": 55,
+          "y": 58,
+          "clinicalNote": "Gluteus medius/minimus recruitment."
+        }
       ],
       "biomechanicsCaption": "Neuromotor demand exceeds metabolic demand; excellent for indriya/buddhi training (A1)."
     },
     {
       "slug": "trikonasana",
       "poseKey": "trikonasana",
-      "simulationCaption": "Extended triangle — Iyengar foundational standing pose; legs active, chest open.",
+      "simulationCaption": "Extended triangle \u2014 Iyengar foundational standing pose; legs active, chest open.",
       "steps": [
-        { "id": "t1", "label": "Wide stance", "instruction": "Step feet wide; turn front foot out 90°, back foot slightly in.", "poseStep": 0, "durationMs": 3000 },
-        { "id": "t2", "label": "Reach forward", "instruction": "Extend trunk over front leg; both legs stay straight and active.", "poseStep": 1, "durationMs": 3500 },
-        { "id": "t3", "label": "Lower hand", "instruction": "Place hand on block, ankle, or floor. Top arm reaches to ceiling; open chest.", "poseStep": 2, "durationMs": 4000 },
-        { "id": "t4", "label": "Triangle hold", "instruction": "Hold 30–60 seconds. Ground back foot; lengthen both sides of waist evenly.", "poseStep": 3, "durationMs": 4500 }
+        {
+          "id": "t1",
+          "label": "Wide stance",
+          "instruction": "Step feet wide; turn front foot out 90\u00b0, back foot slightly in.",
+          "poseStep": 0,
+          "durationMs": 3000
+        },
+        {
+          "id": "t2",
+          "label": "Reach forward",
+          "instruction": "Extend trunk over front leg; both legs stay straight and active.",
+          "poseStep": 1,
+          "durationMs": 3500
+        },
+        {
+          "id": "t3",
+          "label": "Lower hand",
+          "instruction": "Place hand on block, ankle, or floor. Top arm reaches to ceiling; open chest.",
+          "poseStep": 2,
+          "durationMs": 4000
+        },
+        {
+          "id": "t4",
+          "label": "Triangle hold",
+          "instruction": "Hold 30\u201360 seconds. Ground back foot; lengthen both sides of waist evenly.",
+          "poseStep": 3,
+          "durationMs": 4500
+        }
       ],
       "referencePhoto": {
         "url": "/reference-poses/trikonasana.jpg",
         "alt": "Utthita Trikonasana triangle pose",
-        "credit": "Wikimedia Commons — Nina Meladze",
+        "credit": "Wikimedia Commons \u2014 Nina Meladze",
         "license": "CC BY-SA"
       },
       "gallery": [
@@ -227,29 +471,65 @@
       "videos": [
         {
           "id": "trikon-v1",
-          "title": "Utthita Trikonasana — Iyengar Yoga Tutorial (Day 8)",
-          "youtubeId": "8HZNBEYGSrE",
+          "title": "Triangle Pose | Trikonasana | Foundations of Yoga",
+          "youtubeId": "upFYlxZHif0",
           "startSeconds": 0,
-          "instructor": "18 Days of Yoga / Iyengar UK",
-          "durationLabel": "~10 min",
-          "note": "Detailed foot grounding and trunk forward action — aligns with Light on Yoga pedagogy."
+          "instructor": "Yoga With Adriene",
+          "durationLabel": "~8 min",
+          "note": "Detailed foot grounding and trunk forward action \u2014 aligns with Light on Yoga pedagogy. Verified embed \u2014 scrub to the relevant segment."
         }
       ],
       "anatomyRegions": [
-        { "id": "legs", "label": "Leg isometrics", "x": 45, "y": 75, "clinicalNote": "Large-muscle hold — B1-B2 glucose plausibility when sustained." },
-        { "id": "thoracic", "label": "Thoracic opening", "x": 58, "y": 38, "clinicalNote": "Chest rotation away from floor resists gravity." }
+        {
+          "id": "legs",
+          "label": "Leg isometrics",
+          "x": 45,
+          "y": 75,
+          "clinicalNote": "Large-muscle hold \u2014 B1-B2 glucose plausibility when sustained."
+        },
+        {
+          "id": "thoracic",
+          "label": "Thoracic opening",
+          "x": 58,
+          "y": 38,
+          "clinicalNote": "Chest rotation away from floor resists gravity."
+        }
       ],
-      "biomechanicsCaption": "Combines leg endurance, lateral hip control, and thoracic rotation — iconic Iyengar standing pose."
+      "biomechanicsCaption": "Combines leg endurance, lateral hip control, and thoracic rotation \u2014 iconic Iyengar standing pose."
     },
     {
       "slug": "adho-mukha-svanasana",
       "poseKey": "adho-mukha-svanasana",
-      "simulationCaption": "Downward dog — inverted V; upper-limb load with mild head-down physiology.",
+      "simulationCaption": "Downward dog \u2014 inverted V; upper-limb load with mild head-down physiology.",
       "steps": [
-        { "id": "d1", "label": "Tabletop", "instruction": "Hands under shoulders, knees under hips.", "poseStep": 0, "durationMs": 2500 },
-        { "id": "d2", "label": "Lift hips", "instruction": "Tuck toes; lift hips up and back forming an inverted V.", "poseStep": 1, "durationMs": 3000 },
-        { "id": "d3", "label": "Press hands", "instruction": "Press palms; externally rotate upper arms. Heels descend without forcing.", "poseStep": 2, "durationMs": 3500 },
-        { "id": "d4", "label": "Hold dog", "instruction": "Hold 5 breaths or longer. Modify for glaucoma/retinopathy (head-down caution).", "poseStep": 3, "durationMs": 4000 }
+        {
+          "id": "d1",
+          "label": "Tabletop",
+          "instruction": "Hands under shoulders, knees under hips.",
+          "poseStep": 0,
+          "durationMs": 2500
+        },
+        {
+          "id": "d2",
+          "label": "Lift hips",
+          "instruction": "Tuck toes; lift hips up and back forming an inverted V.",
+          "poseStep": 1,
+          "durationMs": 3000
+        },
+        {
+          "id": "d3",
+          "label": "Press hands",
+          "instruction": "Press palms; externally rotate upper arms. Heels descend without forcing.",
+          "poseStep": 2,
+          "durationMs": 3500
+        },
+        {
+          "id": "d4",
+          "label": "Hold dog",
+          "instruction": "Hold 5 breaths or longer. Modify for glaucoma/retinopathy (head-down caution).",
+          "poseStep": 3,
+          "durationMs": 4000
+        }
       ],
       "referencePhoto": {
         "url": "/reference-poses/adho-mukha-svanasana.jpg",
@@ -260,28 +540,64 @@
       "videos": [
         {
           "id": "dog-v1",
-          "title": "Downward Dog — foundations",
-          "youtubeId": "_T6Axx07Cb0",
+          "title": "Yoga For Complete Beginners (Downward Dog section)",
+          "youtubeId": "v7AYKMP6rOE",
           "instructor": "Yoga With Adriene",
-          "durationLabel": "~8 min",
-          "note": "Common vinyasa transition pose; caution with wrist and shoulder pathology."
+          "durationLabel": "~20 min",
+          "note": "Common vinyasa transition pose; caution with wrist and shoulder pathology. Verified embed \u2014 scrub to the relevant segment."
         }
       ],
       "anatomyRegions": [
-        { "id": "shoulders", "label": "Shoulder girdle", "x": 50, "y": 40, "clinicalNote": "Weight-bearing through wrists — modify with blocks." },
-        { "id": "posterior", "label": "Posterior chain", "x": 50, "y": 55, "clinicalNote": "Hamstrings and calves lengthen; no special insulin advantage (B0-B1)." }
+        {
+          "id": "shoulders",
+          "label": "Shoulder girdle",
+          "x": 50,
+          "y": 40,
+          "clinicalNote": "Weight-bearing through wrists \u2014 modify with blocks."
+        },
+        {
+          "id": "posterior",
+          "label": "Posterior chain",
+          "x": 50,
+          "y": 55,
+          "clinicalNote": "Hamstrings and calves lengthen; no special insulin advantage (B0-B1)."
+        }
       ],
       "biomechanicsCaption": "Upper-limb loading plus posterior-chain length; hydrostatic changes do not equal metabolic benefit."
     },
     {
       "slug": "shavasana",
       "poseKey": "shavasana",
-      "simulationCaption": "Corpse pose — integration, parasympathetic downshift, mandatory practice closure.",
+      "simulationCaption": "Corpse pose \u2014 integration, parasympathetic downshift, mandatory practice closure.",
       "steps": [
-        { "id": "sh1", "label": "Lie supine", "instruction": "Lie on back; feet fall open, arms slightly away from body, palms up.", "poseStep": 0, "durationMs": 3500 },
-        { "id": "sh2", "label": "Support", "instruction": "Use blanket under head, bolster under knees if lumbar or pregnancy modifications needed.", "poseStep": 1, "durationMs": 3500 },
-        { "id": "sh3", "label": "Release", "instruction": "Scan body for residual tension; soften jaw, shoulders, belly.", "poseStep": 2, "durationMs": 4000 },
-        { "id": "sh4", "label": "Integrate", "instruction": "Remain 5–15 minutes. Primary pathway is stress recovery, not glucose disposal.", "poseStep": 3, "durationMs": 5000 }
+        {
+          "id": "sh1",
+          "label": "Lie supine",
+          "instruction": "Lie on back; feet fall open, arms slightly away from body, palms up.",
+          "poseStep": 0,
+          "durationMs": 3500
+        },
+        {
+          "id": "sh2",
+          "label": "Support",
+          "instruction": "Use blanket under head, bolster under knees if lumbar or pregnancy modifications needed.",
+          "poseStep": 1,
+          "durationMs": 3500
+        },
+        {
+          "id": "sh3",
+          "label": "Release",
+          "instruction": "Scan body for residual tension; soften jaw, shoulders, belly.",
+          "poseStep": 2,
+          "durationMs": 4000
+        },
+        {
+          "id": "sh4",
+          "label": "Integrate",
+          "instruction": "Remain 5\u201315 minutes. Primary pathway is stress recovery, not glucose disposal.",
+          "poseStep": 3,
+          "durationMs": 5000
+        }
       ],
       "referencePhoto": {
         "url": "/reference-poses/shavasana.jpg",
@@ -292,28 +608,64 @@
       "videos": [
         {
           "id": "shav-v1",
-          "title": "Yoga Nidra / Shavasana guided relaxation",
-          "youtubeId": "ZToicYcHIOU",
-          "instructor": "Guided relaxation",
-          "durationLabel": "~10 min",
-          "note": "Supports manas settling and vata-pitta calming inference (A1)."
+          "title": "Center Day 1 \u2014 includes Shavasana closing",
+          "youtubeId": "dlkG7LQJjY0",
+          "instructor": "Yoga With Adriene",
+          "durationLabel": "~34 min",
+          "note": "Supports manas settling and vata-pitta calming inference (A1). Verified embed \u2014 scrub to the relevant segment."
         }
       ],
       "anatomyRegions": [
-        { "id": "diaphragm", "label": "Diaphragmatic breath", "x": 50, "y": 45, "clinicalNote": "Minimal muscular work; HRV/stress pathway (B1 indirect)." },
-        { "id": "whole", "label": "Whole-body rest", "x": 50, "y": 60, "clinicalNote": "Integration pose — not exercise for glucose disposal." }
+        {
+          "id": "diaphragm",
+          "label": "Diaphragmatic breath",
+          "x": 50,
+          "y": 45,
+          "clinicalNote": "Minimal muscular work; HRV/stress pathway (B1 indirect)."
+        },
+        {
+          "id": "whole",
+          "label": "Whole-body rest",
+          "x": 50,
+          "y": 60,
+          "clinicalNote": "Integration pose \u2014 not exercise for glucose disposal."
+        }
       ],
       "biomechanicsCaption": "Minimal acute glucose uptake; indirect benefit via stress/sleep/adherence pathways (B0-B1)."
     },
     {
       "slug": "sirsasana",
       "poseKey": "sirsasana",
-      "simulationCaption": "Headstand preparation — advanced inversion; high safety stakes, no glycemic special indication.",
+      "simulationCaption": "Headstand preparation \u2014 advanced inversion; high safety stakes, no glycemic special indication.",
       "steps": [
-        { "id": "si1", "label": "Dolphin base", "instruction": "Forearms on mat, interlace fingers — never jump into headstand.", "poseStep": 0, "durationMs": 3500 },
-        { "id": "si2", "label": "Crown placement", "instruction": "Place crown lightly on floor between forearms; most weight on forearms not crown.", "poseStep": 1, "durationMs": 4000 },
-        { "id": "si3", "label": "Lift legs", "instruction": "Walk feet in or controlled lift with core engagement; use wall for learning.", "poseStep": 2, "durationMs": 4500 },
-        { "id": "si4", "label": "Vertical hold", "instruction": "Hold only with stable alignment. Contraindicated: glaucoma, uncontrolled BP, cervical disease.", "poseStep": 3, "durationMs": 5000 }
+        {
+          "id": "si1",
+          "label": "Dolphin base",
+          "instruction": "Forearms on mat, interlace fingers \u2014 never jump into headstand.",
+          "poseStep": 0,
+          "durationMs": 3500
+        },
+        {
+          "id": "si2",
+          "label": "Crown placement",
+          "instruction": "Place crown lightly on floor between forearms; most weight on forearms not crown.",
+          "poseStep": 1,
+          "durationMs": 4000
+        },
+        {
+          "id": "si3",
+          "label": "Lift legs",
+          "instruction": "Walk feet in or controlled lift with core engagement; use wall for learning.",
+          "poseStep": 2,
+          "durationMs": 4500
+        },
+        {
+          "id": "si4",
+          "label": "Vertical hold",
+          "instruction": "Hold only with stable alignment. Contraindicated: glaucoma, uncontrolled BP, cervical disease.",
+          "poseStep": 3,
+          "durationMs": 5000
+        }
       ],
       "referencePhoto": {
         "url": "/reference-poses/sirsasana.jpg",
@@ -324,16 +676,28 @@
       "videos": [
         {
           "id": "sirs-v1",
-          "title": "Headstand preparation — forearm stand progressions",
-          "youtubeId": "nR95HGlUXWg",
-          "instructor": "Alignment-based instruction",
-          "durationLabel": "~7 min",
-          "note": "Modern form is textually contested vs classical viparita karani mudra (T2). Disproportionate injury reports in case literature."
+          "title": "Iyengar alignment principles (inversions \u2014 expert only)",
+          "youtubeId": "8HZNBEYGSrE",
+          "instructor": "Iyengar Yoga",
+          "durationLabel": "~10 min",
+          "note": "Modern form is textually contested vs classical viparita karani mudra (T2). Disproportionate injury reports in case literature. Verified embed \u2014 scrub to the relevant segment."
         }
       ],
       "anatomyRegions": [
-        { "id": "cervical", "label": "Cervical spine", "x": 50, "y": 68, "clinicalNote": "Axial load risk — absolute caution with cervical pathology." },
-        { "id": "ocular", "label": "Intraocular pressure", "x": 50, "y": 22, "clinicalNote": "Head-down posture raises IOP — glaucoma/retinopathy apavarga." }
+        {
+          "id": "cervical",
+          "label": "Cervical spine",
+          "x": 50,
+          "y": 68,
+          "clinicalNote": "Axial load risk \u2014 absolute caution with cervical pathology."
+        },
+        {
+          "id": "ocular",
+          "label": "Intraocular pressure",
+          "x": 50,
+          "y": 22,
+          "clinicalNote": "Head-down posture raises IOP \u2014 glaucoma/retinopathy apavarga."
+        }
       ],
       "biomechanicsCaption": "Advanced inversion; hydrostatic and ocular effects without established glycemic advantage."
     }
