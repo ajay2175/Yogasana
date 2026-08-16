@@ -1,0 +1,506 @@
+{
+  "version": "0.1.0",
+  "updated": "2026-08-16",
+  "sourceNotes": [
+    "Asana_Insulin_Whole_Person_Research_Monograph.docx",
+    "Asanas.pdf drill-down companion (OCR)"
+  ],
+  "asanas": [
+    {
+      "identity": {
+        "slug": "siddhasana",
+        "nameEnglish": "Siddhasana",
+        "nameSanskrit": "Siddhasana",
+        "aliases": ["Adept's Pose"],
+        "family": "meditative_seated",
+        "lineages": ["classical", "iyengar"],
+        "classicalSources": ["Gheranda Samhita 2.9-10", "HYP 1.35-43", "Shiva Samhita 3.98-103"]
+      },
+      "summary": "Classical meditation seat prized for nadi-shuddhi preparation; minimal acute glucose disposal, strong manas/sattva orientation.",
+      "lineageEvidence": "Gheranda; Hatha Yoga Pradipika; Shiva Samhita; T2/A1",
+      "insulinGlucose": "B0-B1: little acute glucose disposal; possible indirect benefit through reduced arousal and better adherence.",
+      "shariraWellbeing": "Axial postural endurance, hip mobility and stable breath/attention. Especially suited to stable meditation.",
+      "manasAyurveda": "A1: vata-grounding and prana-manas integration; no direct dhatu or insulin claim.",
+      "safety": "Protect knees, hips and ankles; use height/support rather than forcing rotation.",
+      "dosha": {
+        "vata": "decrease",
+        "pitta": "balance",
+        "kapha": "neutral",
+        "gunas": ["sthira", "laghu"],
+        "evidenceCodes": ["A1"]
+      },
+      "srotas": [
+        {
+          "srotas": "pranavaha",
+          "moolaSthana": ["hridaya", "mahasrotas"],
+          "mechanism": "Steadies breath for pranayama preparation",
+          "evidenceCodes": ["A1"]
+        }
+      ],
+      "triguna": "sattvic",
+      "trividhaHetu": ["adhyatmika"],
+      "iyengar": {
+        "alignmentCues": ["Even sit bones", "Neutral spine", "Soft shoulders"],
+        "props": ["Blanket under hips", "Block under knees"],
+        "holdSeconds": 300,
+        "lightOnYogaRef": "Week 1-2 foundation seats",
+        "therapeuticUse": "Meditation base when lotus is unavailable"
+      },
+      "contraindications": [
+        {
+          "condition": "Knee or hip osteoarthritis",
+          "strength": "relative",
+          "rationale": "Forced external rotation may aggravate joint pain",
+          "evidenceCodes": ["B1"]
+        }
+      ],
+      "claims": [
+        {
+          "id": "siddhasana-t1-nadi",
+          "statement": "HYP frames steady asana as supporting nadi purification before pranayama.",
+          "layer": "textual",
+          "evidenceCodes": ["T1"],
+          "tantrayukti": ["adhikarana", "nirdesha"]
+        }
+      ],
+      "evidenceCodes": ["T2", "A1", "B0", "B1"]
+    },
+    {
+      "identity": {
+        "slug": "vajrasana",
+        "nameEnglish": "Vajrasana",
+        "nameSanskrit": "Vajrasana",
+        "aliases": ["Thunderbolt Pose", "Diamond Pose"],
+        "family": "meditative_seated",
+        "lineages": ["classical", "iyengar", "modern_common"],
+        "classicalSources": ["Gheranda Samhita 2.12-13"]
+      },
+      "summary": "Kneeling meditation seat; traditionally tolerated after meals though postprandial insulin evidence is lacking.",
+      "lineageEvidence": "Gheranda; T2/A1",
+      "insulinGlucose": "B0-B1: little acute glucose disposal; folk post-meal digestive comfort claim plausible but not trial-proven.",
+      "shariraWellbeing": "Kneeling axial endurance; may support comfortable upright rest after eating when knees tolerate it.",
+      "manasAyurveda": "A1: annavaha and jatharagni association in integrative teaching; not verbatim Charaka.",
+      "safety": "Protect knees and ankles; use blanket or bench if compression is excessive.",
+      "dosha": {
+        "pitta": "balance",
+        "vata": "decrease",
+        "kapha": "neutral",
+        "gunas": ["sthira"],
+        "notes": "Integrative agni-seat tag",
+        "evidenceCodes": ["A1"]
+      },
+      "srotas": [
+        {
+          "srotas": "annavaha",
+          "moolaSthana": ["amashaya"],
+          "mechanism": "Upright kneeling abdominal positioning at rest",
+          "evidenceCodes": ["A1"]
+        }
+      ],
+      "triguna": "sattvic",
+      "trividhaHetu": ["adhyatmika", "adhibhautika"],
+      "iyengar": {
+        "props": ["Blanket between calves and thighs", "Bench for knee pain"],
+        "therapeuticUse": "Short sits after meals when walking is impossible"
+      },
+      "contraindications": [
+        {
+          "condition": "Knee arthritis or varicose veins",
+          "strength": "relative",
+          "rationale": "Prolonged knee flexion and venous compression",
+          "evidenceCodes": ["B1"]
+        }
+      ],
+      "claims": [
+        {
+          "id": "vajrasana-postmeal-a1",
+          "statement": "Post-meal comfort seat, not metabolically equivalent to active muscle contraction.",
+          "layer": "integrative",
+          "evidenceCodes": ["A1"],
+          "tantrayukti": ["arthapatti", "apavarga"],
+          "falsifiable": true
+        }
+      ],
+      "evidenceCodes": ["T2", "A1", "B0", "B1"]
+    },
+    {
+      "identity": {
+        "slug": "matsyendrasana",
+        "nameEnglish": "Matsyendrasana",
+        "nameSanskrit": "Matsyendrasana",
+        "aliases": ["Lord of the Fishes", "Ardha Matsyendrasana"],
+        "family": "twist",
+        "lineages": ["classical", "iyengar", "modern_common"],
+        "classicalSources": ["Gheranda Samhita 2.23"]
+      },
+      "summary": "Strong seated twist; Gheranda T1 agni/digestive claim; no proof of pancreatic insulin stimulation.",
+      "lineageEvidence": "Gheranda; Hatha Yoga Pradipika; T2/A1",
+      "insulinGlucose": "B1: modest muscular work; no proof that compression triggers insulin secretion.",
+      "shariraWellbeing": "Thoracic rotation and trunk control; traditional disease claims exceed posture-specific evidence.",
+      "manasAyurveda": "A1: samana/apana and annavaha-purishavaha hypotheses; avoid literal detox claims.",
+      "safety": "Avoid strong closed twists after meals, during pregnancy or with acute disc pain.",
+      "dosha": {
+        "pitta": "decrease",
+        "kapha": "decrease",
+        "vata": "balance",
+        "evidenceCodes": ["A1", "T1"]
+      },
+      "srotas": [
+        {
+          "srotas": "annavaha",
+          "moolaSthana": ["amashaya"],
+          "mechanism": "Trunk rotation with abdominal compression",
+          "evidenceCodes": ["A1"]
+        },
+        {
+          "srotas": "purishavaha",
+          "moolaSthana": ["pakwashaya", "sthula guda"],
+          "evidenceCodes": ["A1"]
+        }
+      ],
+      "triguna": "mixed",
+      "trividhaHetu": ["adhibhautika"],
+      "iyengar": {
+        "alignmentCues": ["Lift spine before rotating", "Keep opposite sit bone grounded"],
+        "props": ["Blanket under hip", "Chair back for support"],
+        "therapeuticUse": "Graded spinal rotation when symptom-free"
+      },
+      "contraindications": [
+        {
+          "condition": "Pregnancy",
+          "strength": "absolute",
+          "rationale": "Deep abdominal compression and rotation",
+          "evidenceCodes": ["B1"]
+        },
+        {
+          "condition": "Recent abdominal surgery or disc herniation",
+          "strength": "absolute",
+          "rationale": "Rotation under load is a recognized back-pain mechanism",
+          "evidenceCodes": ["B1"]
+        }
+      ],
+      "claims": [
+        {
+          "id": "matsyendrasana-t1-agni",
+          "statement": "Gheranda states this asana increases digestive fire and destroys terrible diseases.",
+          "layer": "textual",
+          "evidenceCodes": ["T1"],
+          "tantrayukti": ["uddesh", "nirdesha"]
+        }
+      ],
+      "evidenceCodes": ["T1", "T2", "A1", "B1"]
+    },
+    {
+      "identity": {
+        "slug": "paschimottanasana",
+        "nameEnglish": "Paschimottanasana",
+        "nameSanskrit": "Paschimottanasana",
+        "aliases": ["Seated Forward Bend", "West-Stretching Pose", "Ugrasana"],
+        "family": "forward_fold",
+        "lineages": ["classical", "iyengar", "modern_common"],
+        "classicalSources": ["Gheranda Samhita 2.26"]
+      },
+      "summary": "Posterior-chain fold with one of the clearest classical agni links in the canon.",
+      "lineageEvidence": "Gheranda; Hatha Yoga Pradipika; Shiva Samhita related Ugra; T2/A1",
+      "insulinGlucose": "B1: passive holds have little glucose-disposal effect; dynamic repetitions recruit more muscle.",
+      "shariraWellbeing": "Posterior-chain mobility and down-regulation for some practitioners.",
+      "manasAyurveda": "A1: apana-vata/purishavaha association; abdominal compression is not proven endocrine therapy.",
+      "safety": "Modify with disc symptoms, neural tension, glaucoma or retinopathy.",
+      "dosha": {
+        "pitta": "decrease",
+        "vata": "increase",
+        "notes": "Can aggravate vata if forced",
+        "evidenceCodes": ["A1", "T1"]
+      },
+      "srotas": [
+        {
+          "srotas": "annavaha",
+          "moolaSthana": ["amashaya"],
+          "mechanism": "T1-textual agni association",
+          "evidenceCodes": ["T1", "A1"]
+        }
+      ],
+      "triguna": "sattvic",
+      "trividhaHetu": ["adhyatmika", "adhibhautika"],
+      "iyengar": {
+        "alignmentCues": ["Hinge from hips", "Extend spine before folding"],
+        "props": ["Strap around feet", "Blanket under hips"],
+        "therapeuticUse": "Hamstring mobility and calming sequence end"
+      },
+      "contraindications": [
+        {
+          "condition": "Acute disc herniation or sciatica",
+          "strength": "relative",
+          "rationale": "Forced flexion may worsen neural irritation",
+          "evidenceCodes": ["B1"]
+        }
+      ],
+      "claims": [
+        {
+          "id": "paschimottanasana-t1-agni",
+          "statement": "Gheranda states this asana increases digestive fire and makes the body slim.",
+          "layer": "textual",
+          "evidenceCodes": ["T1"]
+        }
+      ],
+      "evidenceCodes": ["T1", "T2", "A1", "B1"]
+    },
+    {
+      "identity": {
+        "slug": "utkatasana",
+        "nameEnglish": "Utkatasana",
+        "nameSanskrit": "Utkatasana",
+        "aliases": ["Chair Pose", "Fierce Pose"],
+        "family": "standing",
+        "lineages": ["classical", "krishnamacharya", "iyengar", "modern_common"],
+        "lineageVariants": [
+          {
+            "lineage": "classical",
+            "notes": "Gheranda squat seat differs from modern standing chair form"
+          }
+        ],
+        "classicalSources": ["Gheranda Samhita 2.31"]
+      },
+      "summary": "Large-muscle isometric loading with comparatively strong acute glucose plausibility when held or repeated.",
+      "lineageEvidence": "Gheranda; T2/A1",
+      "insulinGlucose": "B1-B2: active large-muscle work supports contraction-mediated glucose uptake when held or sequenced.",
+      "shariraWellbeing": "Lower-limb strength, balance, proprioception and weight-bearing.",
+      "manasAyurveda": "A1: mamsa-asthi support and kapha-meda mobilization; rasavaha/raktavaha demand increases.",
+      "safety": "Use support for fall risk; avoid strain or breath holding.",
+      "dosha": {
+        "kapha": "decrease",
+        "pitta": "increase",
+        "vata": "balance",
+        "evidenceCodes": ["A1"]
+      },
+      "srotas": [
+        {
+          "srotas": "mamsavaha",
+          "mechanism": "Quadriceps and glute isometric loading",
+          "evidenceCodes": ["A1", "B1"]
+        },
+        {
+          "srotas": "medovaha",
+          "moolaSthana": ["vrikka", "vapavahana"],
+          "evidenceCodes": ["A1"]
+        }
+      ],
+      "triguna": "rajasic",
+      "trividhaHetu": ["adhibhautika"],
+      "iyengar": {
+        "alignmentCues": ["Weight into heels", "Knees track over toes", "Arms aligned with ears in full form"],
+        "props": ["Wall support for balance"],
+        "holdSeconds": 30,
+        "therapeuticUse": "Leg strengthening; post-meal active option when walking unavailable"
+      },
+      "contraindications": [
+        {
+          "condition": "Knee injury or fall risk",
+          "strength": "relative",
+          "rationale": "Deep static squat loading",
+          "evidenceCodes": ["B1"]
+        }
+      ],
+      "claims": [
+        {
+          "id": "utkatasana-glucose-b1",
+          "statement": "Sustained quadriceps work plausibly supports contraction-mediated glucose uptake.",
+          "layer": "biomedical",
+          "evidenceCodes": ["B1", "B2"],
+          "falsifiable": true
+        }
+      ],
+      "evidenceCodes": ["T2", "A1", "B1", "B2"]
+    },
+    {
+      "identity": {
+        "slug": "vrikshasana",
+        "nameEnglish": "Vrikshasana",
+        "nameSanskrit": "Vrikshasana",
+        "aliases": ["Tree Pose"],
+        "family": "standing",
+        "lineages": ["classical", "iyengar", "modern_common"],
+        "classicalSources": ["Gheranda Samhita 2.36-37"]
+      },
+      "summary": "Only standing pose among Gheranda's 32; balance and proprioception training with modest metabolic demand.",
+      "lineageEvidence": "Gheranda; T2/A1",
+      "insulinGlucose": "B1: metabolic demand varies; usually more neuromotor than glycemic.",
+      "shariraWellbeing": "Single-leg balance trains proprioception and attention.",
+      "manasAyurveda": "A1: buddhi/indriya coordination and vata stabilization through controlled attention.",
+      "safety": "Use wall/chair when fall consequences are meaningful.",
+      "dosha": {
+        "vata": "decrease",
+        "kapha": "decrease",
+        "evidenceCodes": ["A1"]
+      },
+      "triguna": "sattvic",
+      "trividhaHetu": ["adhyatmika", "adhibhautika"],
+      "iyengar": {
+        "alignmentCues": ["Press standing foot down", "Open hip without twisting knee"],
+        "props": ["Wall or chair contact"],
+        "therapeuticUse": "Elder balance protocols as component pose"
+      },
+      "contraindications": [
+        {
+          "condition": "Vertigo or significant ankle instability",
+          "strength": "relative",
+          "rationale": "Fall risk during single-leg stance",
+          "evidenceCodes": ["B1"]
+        }
+      ],
+      "evidenceCodes": ["T2", "A1", "B1"]
+    },
+    {
+      "identity": {
+        "slug": "trikonasana",
+        "nameEnglish": "Trikonasana",
+        "nameSanskrit": "Trikonasana",
+        "aliases": ["Triangle Pose"],
+        "family": "standing",
+        "lineages": ["krishnamacharya", "iyengar", "modern_common"]
+      },
+      "summary": "Krishnamacharya-lineage standing pose; leg endurance and lateral opening without classical T1 antecedent.",
+      "lineageEvidence": "Modern/common; T1/A1 lineage synthesis; B0-B1 posture-specific",
+      "insulinGlucose": "B1-B2: active large-muscle work can support contraction-mediated glucose uptake when held.",
+      "shariraWellbeing": "Combines leg endurance, lateral hip control and thoracic rotation.",
+      "manasAyurveda": "A1: mamsa-asthi support and kapha-meda mobilization.",
+      "safety": "Use support for fall risk; avoid strain or breath holding.",
+      "dosha": {
+        "kapha": "decrease",
+        "evidenceCodes": ["A1"]
+      },
+      "iyengar": {
+        "alignmentCues": ["Front knee over ankle", "Both legs active", "Open chest without collapsing"],
+        "props": ["Block under lower hand", "Wall behind back"],
+        "lightOnYogaRef": "Standing sequence foundation",
+        "therapeuticUse": "Component in hypertension and back-care trial protocols"
+      },
+      "contraindications": [
+        {
+          "condition": "Uncontrolled hypertension with head below heart",
+          "strength": "relative",
+          "rationale": "Head-down variants may affect BP",
+          "evidenceCodes": ["B1"]
+        }
+      ],
+      "evidenceCodes": ["T1", "A1", "B0", "B1"]
+    },
+    {
+      "identity": {
+        "slug": "adho-mukha-svanasana",
+        "nameEnglish": "Adho Mukha Svanasana",
+        "nameSanskrit": "Adho Mukha Svanasana",
+        "aliases": ["Downward-Facing Dog"],
+        "family": "dynamic_flow",
+        "lineages": ["modern_common", "iyengar", "ashtanga"]
+      },
+      "summary": "Upper-limb loading and posterior-chain length; mild inversion without special glycemic advantage.",
+      "lineageEvidence": "Modern/common; T1/A1; B0-B1 posture-specific",
+      "insulinGlucose": "B0-B1: no special insulin-lowering advantage; hydrostatic changes do not equal metabolic benefit.",
+      "shariraWellbeing": "Upper-limb loading, posterior-chain length, proprioceptive challenge.",
+      "manasAyurveda": "Traditional pranic claims remain within their own framework; not equated with cerebral perfusion benefit.",
+      "safety": "Modify with glaucoma, retinopathy, cervical disease, uncontrolled BP or high fall risk.",
+      "dosha": {
+        "vata": "balance",
+        "evidenceCodes": ["A1"]
+      },
+      "iyengar": {
+        "alignmentCues": ["Press hands and feet", "Outer upper arms rotate inward", "Heels toward floor without forcing"],
+        "props": ["Blocks under hands", "Wall for heels"],
+        "therapeuticUse": "Transition pose and shoulder girdle strengthening"
+      },
+      "contraindications": [
+        {
+          "condition": "Glaucoma or diabetic retinopathy",
+          "strength": "relative",
+          "rationale": "Head-down posture increases intraocular pressure",
+          "evidenceCodes": ["B2", "B3"]
+        }
+      ],
+      "evidenceCodes": ["T1", "A1", "B0", "B1"]
+    },
+    {
+      "identity": {
+        "slug": "shavasana",
+        "nameEnglish": "Shavasana",
+        "nameSanskrit": "Shavasana",
+        "aliases": ["Corpse Pose", "Mritasana"],
+        "family": "restorative",
+        "lineages": ["classical", "iyengar", "modern_common"],
+        "classicalSources": ["Gheranda Samhita", "HYP"]
+      },
+      "summary": "Integration and recovery pose; minimal glucose disposal, strong down-regulation pathway.",
+      "lineageEvidence": "Gheranda; Hatha Yoga Pradipika; T2/A1",
+      "insulinGlucose": "B0-B1: minimal direct glucose uptake; potential indirect benefit via stress/sleep pathways.",
+      "shariraWellbeing": "Relaxation, recovery, breathing comfort and interoception.",
+      "manasAyurveda": "A1: vata-pitta calming and ojas-supportive as whole-system inference.",
+      "safety": "Ensure easy breathing; change position with reflux or dizziness.",
+      "dosha": {
+        "vata": "decrease",
+        "pitta": "decrease",
+        "evidenceCodes": ["A1"]
+      },
+      "triguna": "sattvic",
+      "trividhaHetu": ["adhyatmika"],
+      "iyengar": {
+        "props": ["Blanket under head", "Bolster under knees"],
+        "therapeuticUse": "Mandatory closure after active practice"
+      },
+      "contraindications": [
+        {
+          "condition": "Third-trimester pregnancy supine",
+          "strength": "relative",
+          "rationale": "Supine hypotension risk",
+          "evidenceCodes": ["B1"]
+        }
+      ],
+      "evidenceCodes": ["T2", "A1", "B0", "B1"]
+    },
+    {
+      "identity": {
+        "slug": "sirsasana",
+        "nameEnglish": "Sirsasana",
+        "nameSanskrit": "Sirsasana",
+        "aliases": ["Headstand"],
+        "family": "inversion",
+        "lineages": ["iyengar", "ashtanga", "sivananda", "modern_common"]
+      },
+      "summary": "Advanced inversion with disproportionate adverse-event reports and no special glycemic indication.",
+      "lineageEvidence": "Later Hatha/modern; T1/A1; B0-B1 posture-specific",
+      "insulinGlucose": "B0-B1: no special insulin-lowering advantage; hydrostatic changes do not equal metabolic benefit.",
+      "shariraWellbeing": "Proprioceptive challenge; high cervical, shoulder and ocular-pressure considerations.",
+      "manasAyurveda": "Traditional pranic claims should remain within their own framework.",
+      "safety": "Avoid/modify with glaucoma, retinopathy, cervical disease, uncontrolled BP or high fall risk.",
+      "iyengar": {
+        "alignmentCues": ["Forearms grounded", "Crown lightly placed", "Shoulders away from ears"],
+        "props": ["Wall support", "Rope wall in studio settings"],
+        "lightOnYogaRef": "Advanced inversion — progressive preparation required",
+        "therapeuticUse": "Not a general therapeutic prescription"
+      },
+      "contraindications": [
+        {
+          "condition": "Glaucoma or uncontrolled hypertension",
+          "strength": "absolute",
+          "rationale": "Rapid intraocular and hemodynamic changes",
+          "evidenceCodes": ["B2", "B3"]
+        },
+        {
+          "condition": "Cervical spine disease",
+          "strength": "absolute",
+          "rationale": "Axial load on cervical structures",
+          "evidenceCodes": ["B1"]
+        }
+      ],
+      "claims": [
+        {
+          "id": "sirsasana-form-dispute",
+          "statement": "Modern gymnastic headstand is textually contested vs HYP viparita karani mudra.",
+          "layer": "textual",
+          "evidenceCodes": ["T2"],
+          "tantrayukti": ["padartha", "purvapaksha", "nirnaya"]
+        }
+      ],
+      "evidenceCodes": ["T1", "A1", "B0", "B1"]
+    }
+  ]
+}
